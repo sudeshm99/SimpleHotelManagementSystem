@@ -161,23 +161,39 @@ public class AdminPanal extends javax.swing.JFrame {
 //        System.out.println(usr);
 //        System.out.println(pwd);
       try{  
-          System.out.println(usr);
-        System.out.println(pwd);
-        String sql = "SELECT * FROM admin WHERE user='?' AND password='?';";//select quary for entered user
+         
+        String sql = "SELECT * FROM admin WHERE user=? AND password=?;";//select quary for entered user
         PreparedStatement statement = dbconn.conn.prepareStatement(sql);//set quary to db
+        //System.out.println(usr);
+        //System.out.println(pwd);
         statement.setString(1, usr);
-        statement.setString(2, pwd);
-        int rowSelected = statement.executeUpdate();
-        if(rowSelected > 0){
+        statement.setString(2, pwd);// set user input values to the query
+        ResultSet rs = statement.executeQuery();
+        //System.out.println(pwd);
+        String user = null,password = null;
+        while(rs.next()){
+             user = rs.getString("user");//get database username and set it to the user variable
+             password = rs.getString("password");// get database password and set it to the password variable
+            
+        }
+//        System.out.printf("%s", user);
+//        System.out.printf("%s", password);
+        if(user.equals(usr) && password.equals(pwd)){//check result user and password are equals to the user enter username and password
             System.out.println("loged in");
-//                JFrame Manager = new JFrame("Manager");
-//                Manager.setVisible(true);
-//                dispose();
+            if(user.equals("manager")){//if user manager then login into manager form
+                Manager manager = new Manager();
+                manager.setVisible(true);
+                dispose();//close the login window
+            }else if(user.equals("receptionist")){//if user receptionist then login into receptionist form
+                Receptionist receptionist = new Receptionist();
+                receptionist.setVisible(true);
+                dispose();//close the login window
+            }
         }else{
             System.out.println("Password is incorrect");
         }
       }catch(Exception ex){
-          
+          System.out.println("exeption");
         }
     }//GEN-LAST:event_loginActionPerformed
 
