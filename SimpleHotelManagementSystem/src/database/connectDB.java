@@ -5,8 +5,8 @@ import java.sql.*;
 
 public class connectDB {
     public Connection conn = null;
-    public void connectDB(){
-        String url = "jdbc:mysql://localhost:3306/HotelManagmentSystem";
+    public void connect(){
+        String url = "jdbc:mysql://localhost:3306/HotelManagementSystem?useSSL=false";
         String user = "root";
         String pass = "1234";
         
