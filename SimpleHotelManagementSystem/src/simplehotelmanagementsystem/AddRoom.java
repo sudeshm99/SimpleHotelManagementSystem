@@ -5,16 +5,19 @@
  */
 package simplehotelmanagementsystem;
 
+import java.sql.*;
+import database.connectDB;
 /**
  *
  * @author root
  */
 public class AddRoom extends javax.swing.JFrame {
-
+     connectDB conn = new connectDB();
     /**
      * Creates new form AddRoom
      */
     public AddRoom() {
+       conn.connect();
         initComponents();
     }
 
@@ -31,7 +34,7 @@ public class AddRoom extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         AddRoom = new javax.swing.JLabel();
-        ACorNON = new javax.swing.JComboBox<>();
+        condition = new javax.swing.JComboBox<>();
         NoOfPersons = new javax.swing.JTextField();
         Add = new javax.swing.JButton();
         close = new javax.swing.JButton();
@@ -45,10 +48,10 @@ public class AddRoom extends javax.swing.JFrame {
         AddRoom.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         AddRoom.setText("Add Rooms");
 
-        ACorNON.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "AC", "NON-AC" }));
-        ACorNON.addActionListener(new java.awt.event.ActionListener() {
+        condition.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "AC", "NON-AC" }));
+        condition.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ACorNONActionPerformed(evt);
+                conditionActionPerformed(evt);
             }
         });
 
@@ -60,6 +63,11 @@ public class AddRoom extends javax.swing.JFrame {
         });
 
         Add.setText("Add");
+        Add.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AddActionPerformed(evt);
+            }
+        });
 
         close.setText("Close");
         close.addActionListener(new java.awt.event.ActionListener() {
@@ -71,7 +79,7 @@ public class AddRoom extends javax.swing.JFrame {
         jDesktopPane1.setLayer(jLabel5, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(jLabel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(AddRoom, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(ACorNON, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(condition, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(NoOfPersons, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(Add, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(close, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -91,7 +99,7 @@ public class AddRoom extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(Add)
-                    .addComponent(ACorNON, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(condition, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(NoOfPersons, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(137, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createSequentialGroup()
@@ -109,7 +117,7 @@ public class AddRoom extends javax.swing.JFrame {
                     .addComponent(NoOfPersons, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ACorNON, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(condition, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5))
                 .addGap(18, 18, 18)
                 .addComponent(Add)
@@ -138,19 +146,32 @@ public class AddRoom extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void ACorNONActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ACorNONActionPerformed
+    private void conditionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_conditionActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_ACorNONActionPerformed
+    }//GEN-LAST:event_conditionActionPerformed
 
     private void NoOfPersonsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NoOfPersonsActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_NoOfPersonsActionPerformed
 
     private void closeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeActionPerformed
-        Manager manager = new Manager();
+        Manager manager = new Manager();//when manager closs add room form redirct to manager home page
         manager.setVisible(true);
-        dispose();
+        dispose();//close current window
     }//GEN-LAST:event_closeActionPerformed
+
+    private void AddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddActionPerformed
+        int noOfPersons = Integer.parseInt(NoOfPersons.getText());//get data from no of person text feild
+        String con = condition.getSelectedItem().toString();
+        int condValue;//when room is ac set 1 for condValue or room is non ac set 0 to condValue
+        if(con.equals("AC")){
+            condValue = 1;
+        }else if(con.equals("NON-AC")){
+            condValue = 0;
+        }
+       
+        
+    }//GEN-LAST:event_AddActionPerformed
 
     /**
      * @param args the command line arguments
@@ -188,11 +209,11 @@ public class AddRoom extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> ACorNON;
     private javax.swing.JButton Add;
     private javax.swing.JLabel AddRoom;
     private javax.swing.JTextField NoOfPersons;
     private javax.swing.JButton close;
+    private javax.swing.JComboBox<String> condition;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel5;

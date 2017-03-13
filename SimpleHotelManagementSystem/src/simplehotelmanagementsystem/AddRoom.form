@@ -59,7 +59,7 @@
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="Add" min="-2" max="-2" attributes="0"/>
-                      <Component id="ACorNON" min="-2" max="-2" attributes="0"/>
+                      <Component id="condition" min="-2" max="-2" attributes="0"/>
                       <Component id="NoOfPersons" min="-2" pref="40" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="137" max="32767" attributes="0"/>
@@ -82,7 +82,7 @@
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="ACorNON" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="condition" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -113,7 +113,7 @@
             <Property name="text" type="java.lang.String" value="Add Rooms"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JComboBox" name="ACorNON">
+        <Component class="javax.swing.JComboBox" name="condition">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="2">
@@ -123,7 +123,7 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ACorNONActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="conditionActionPerformed"/>
           </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -141,6 +141,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Add"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AddActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="close">
           <Properties>
