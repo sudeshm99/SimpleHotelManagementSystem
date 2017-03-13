@@ -162,7 +162,7 @@ public class AdminPanal extends javax.swing.JFrame {
 //        System.out.println(pwd);
       try{  
          
-        String sql = "SELECT user FROM admin WHERE user=? AND password=?;";//select quary for entered user
+        String sql = "SELECT user FROM admin WHERE user=? AND password=? ;";//select quary for entered user
         PreparedStatement statement = dbconn.conn.prepareStatement(sql);//set quary to db
         //System.out.println(usr);
         //System.out.println(pwd);
@@ -170,7 +170,7 @@ public class AdminPanal extends javax.swing.JFrame {
         statement.setString(2, pwd);// set user input values to the query
         ResultSet rs = statement.executeQuery();
         //System.out.println(pwd);
-        String user = null,password = null;
+        String user = null;
         while(rs.next()){
              user = rs.getString("user");//get database username and set it to the user variable
              //password = rs.getString("password");// get database password and set it to the password variable
@@ -178,7 +178,7 @@ public class AdminPanal extends javax.swing.JFrame {
         }
 //        System.out.printf("%s", user);
 //        System.out.printf("%s", password);
-        if(user.equals(usr)){//check result user and password are equals to the user enter username and password
+        //if(user.equals(usr)){//check result user and password are equals to the user enter username and password
             System.out.println("loged in");
             if(user.equals("manager")){//if user manager then login into manager form
                 Manager manager = new Manager();
@@ -188,10 +188,10 @@ public class AdminPanal extends javax.swing.JFrame {
                 Receptionist receptionist = new Receptionist();
                 receptionist.setVisible(true);
                 dispose();//close the login window
-            }
-        }else{
-            System.out.println("Password is incorrect");
+            }else{
+                System.out.println("Password is incorrect");
         }
+        //}
       }catch(Exception ex){
           System.out.println("exeption");
         }
