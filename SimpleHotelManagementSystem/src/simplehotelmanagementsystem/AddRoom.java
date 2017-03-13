@@ -7,17 +7,18 @@ package simplehotelmanagementsystem;
 
 import java.sql.*;
 import database.connectDB;
+import javax.swing.JOptionPane;
 /**
  *
  * @author root
  */
 public class AddRoom extends javax.swing.JFrame {
-     connectDB conn = new connectDB();
+     connectDB dbconn = new connectDB();
     /**
      * Creates new form AddRoom
      */
     public AddRoom() {
-       conn.connect();
+       dbconn.connect();
         initComponents();
     }
 
@@ -161,18 +162,35 @@ public class AddRoom extends javax.swing.JFrame {
     }//GEN-LAST:event_closeActionPerformed
 
     private void AddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddActionPerformed
+      try{ 
         int noOfPersons = Integer.parseInt(NoOfPersons.getText());//get data from no of person text feild
         String con = condition.getSelectedItem().toString();
-        int condValue;//when room is ac set 1 for condValue or room is non ac set 0 to condValue
+        int condValue=2;//when room is ac set 1 for condValue or room is non ac set 0 to condValue
         if(con.equals("AC")){
             condValue = 1;
         }else if(con.equals("NON-AC")){
             condValue = 0;
         }
-       
-        
+       if(noOfPersons > 0){ 
+       String sql = "INSERT INTO rooms (no_of_persons,ac_or_non) VALUES (?,?);";//sql query for insert a room
+       PreparedStatement statement = dbconn.conn.prepareStatement(sql);
+       statement.setInt(1, noOfPersons);
+       statement.setInt(2, condValue);
+       int rowsInsert = statement.executeUpdate();
+       if(rowsInsert > 0){
+           JOptionPane.showMessageDialog(null, "Room is inserted");// if insert a room then show a massage
+        }else if(rowsInsert == 0){
+            JOptionPane.showMessageDialog(null, "Room is not inserted");
+            }
+       }else{
+           JOptionPane.showMessageDialog(null, "Enter Valeda persons number");
+       }
+      }catch(Exception ex){
+          JOptionPane.showMessageDialog(null, "Exception");
+      }
     }//GEN-LAST:event_AddActionPerformed
-
+   
+    
     /**
      * @param args the command line arguments
      */
