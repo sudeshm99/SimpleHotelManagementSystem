@@ -162,7 +162,7 @@ public class AdminPanal extends javax.swing.JFrame {
 //        System.out.println(pwd);
       try{  
          
-        String sql = "SELECT * FROM admin WHERE user=? AND password=?;";//select quary for entered user
+        String sql = "SELECT user FROM admin WHERE user=? AND password=?;";//select quary for entered user
         PreparedStatement statement = dbconn.conn.prepareStatement(sql);//set quary to db
         //System.out.println(usr);
         //System.out.println(pwd);
@@ -173,12 +173,12 @@ public class AdminPanal extends javax.swing.JFrame {
         String user = null,password = null;
         while(rs.next()){
              user = rs.getString("user");//get database username and set it to the user variable
-             password = rs.getString("password");// get database password and set it to the password variable
+             //password = rs.getString("password");// get database password and set it to the password variable
             
         }
 //        System.out.printf("%s", user);
 //        System.out.printf("%s", password);
-        if(user.equals(usr) && password.equals(pwd)){//check result user and password are equals to the user enter username and password
+        if(user.equals(usr)){//check result user and password are equals to the user enter username and password
             System.out.println("loged in");
             if(user.equals("manager")){//if user manager then login into manager form
                 Manager manager = new Manager();
