@@ -29,17 +29,17 @@ public class AvalableRoom extends javax.swing.JFrame {
 
         jDesktopPane1 = new javax.swing.JDesktopPane();
         noofperl = new javax.swing.JLabel();
-        noofptxt = new javax.swing.JTextField();
         acnonc = new javax.swing.JComboBox<>();
         acnonl = new javax.swing.JLabel();
         check = new javax.swing.JLabel();
         checkbtn = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         roomidtxt = new javax.swing.JTextArea();
+        cplorfmly = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        noofperl.setText("No of persons");
+        noofperl.setText("Couple or Family");
 
         acnonc.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "AC", "NON-AC" }));
 
@@ -54,13 +54,15 @@ public class AvalableRoom extends javax.swing.JFrame {
         roomidtxt.setRows(5);
         jScrollPane1.setViewportView(roomidtxt);
 
+        cplorfmly.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Couple", "Family" }));
+
         jDesktopPane1.setLayer(noofperl, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(noofptxt, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(acnonc, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(acnonl, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(check, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(checkbtn, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(jScrollPane1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(cplorfmly, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
         jDesktopPane1.setLayout(jDesktopPane1Layout);
@@ -76,13 +78,13 @@ public class AvalableRoom extends javax.swing.JFrame {
                     .addComponent(acnonl)
                     .addComponent(noofperl))
                 .addGap(18, 18, 18)
-                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(acnonc, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(noofptxt)
-                    .addComponent(checkbtn))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(acnonc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(checkbtn)
+                    .addComponent(cplorfmly, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(144, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createSequentialGroup()
-                .addContainerGap(159, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -98,10 +100,10 @@ public class AvalableRoom extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(noofperl)
-                    .addComponent(noofptxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cplorfmly, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(checkbtn)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30))
         );
@@ -166,10 +168,10 @@ public class AvalableRoom extends javax.swing.JFrame {
     private javax.swing.JLabel acnonl;
     private javax.swing.JLabel check;
     private javax.swing.JButton checkbtn;
+    private javax.swing.JComboBox<String> cplorfmly;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel noofperl;
-    private javax.swing.JTextField noofptxt;
     private javax.swing.JTextArea roomidtxt;
     // End of variables declaration//GEN-END:variables
 }

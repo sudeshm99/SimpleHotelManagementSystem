@@ -58,15 +58,15 @@
                       <Component id="noofperl" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="acnonc" max="32767" attributes="0"/>
-                      <Component id="noofptxt" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="acnonc" min="-2" max="-2" attributes="0"/>
                       <Component id="checkbtn" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="cplorfmly" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace pref="144" max="32767" attributes="0"/>
               </Group>
               <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace pref="159" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
                   <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -85,11 +85,11 @@
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="noofperl" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="noofptxt" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="cplorfmly" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="checkbtn" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="34" max="32767" attributes="0"/>
+                  <EmptySpace pref="24" max="32767" attributes="0"/>
                   <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
               </Group>
@@ -99,10 +99,8 @@
       <SubComponents>
         <Component class="javax.swing.JLabel" name="noofperl">
           <Properties>
-            <Property name="text" type="java.lang.String" value="No of persons"/>
+            <Property name="text" type="java.lang.String" value="Couple or Family"/>
           </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="noofptxt">
         </Component>
         <Component class="javax.swing.JComboBox" name="acnonc">
           <Properties>
@@ -150,6 +148,19 @@
             </Component>
           </SubComponents>
         </Container>
+        <Component class="javax.swing.JComboBox" name="cplorfmly">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="2">
+                <StringItem index="0" value="Couple"/>
+                <StringItem index="1" value="Family"/>
+              </StringArray>
+            </Property>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
+        </Component>
       </SubComponents>
     </Container>
   </SubComponents>
