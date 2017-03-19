@@ -36,15 +36,15 @@ public class AddRoom extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         AddRoom = new javax.swing.JLabel();
         condition = new javax.swing.JComboBox<>();
-        NoOfPersons = new javax.swing.JTextField();
         Add = new javax.swing.JButton();
         close = new javax.swing.JButton();
+        type = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel5.setText("Condition");
 
-        jLabel2.setText("No of persons");
+        jLabel2.setText("Type of room");
 
         AddRoom.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         AddRoom.setText("Add Rooms");
@@ -53,13 +53,6 @@ public class AddRoom extends javax.swing.JFrame {
         condition.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 conditionActionPerformed(evt);
-            }
-        });
-
-        NoOfPersons.setText("2");
-        NoOfPersons.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                NoOfPersonsActionPerformed(evt);
             }
         });
 
@@ -77,13 +70,15 @@ public class AddRoom extends javax.swing.JFrame {
             }
         });
 
+        type.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Couple", "Family" }));
+
         jDesktopPane1.setLayer(jLabel5, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(jLabel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(AddRoom, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(condition, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(NoOfPersons, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(Add, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(close, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(type, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
         jDesktopPane1.setLayout(jDesktopPane1Layout);
@@ -101,8 +96,8 @@ public class AddRoom extends javax.swing.JFrame {
                 .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(Add)
                     .addComponent(condition, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(NoOfPersons, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(137, Short.MAX_VALUE))
+                    .addComponent(type, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(144, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(close)
@@ -112,17 +107,17 @@ public class AddRoom extends javax.swing.JFrame {
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createSequentialGroup()
                 .addComponent(AddRoom)
-                .addGap(40, 40, 40)
+                .addGap(39, 39, 39)
                 .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(NoOfPersons, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(type, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(condition, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5))
                 .addGap(18, 18, 18)
                 .addComponent(Add)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 60, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
                 .addComponent(close)
                 .addGap(25, 25, 25))
         );
@@ -151,10 +146,6 @@ public class AddRoom extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_conditionActionPerformed
 
-    private void NoOfPersonsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NoOfPersonsActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_NoOfPersonsActionPerformed
-
     private void closeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeActionPerformed
         Manager manager = new Manager();//when manager closs add room form redirct to manager home page
         manager.setVisible(true);
@@ -163,18 +154,23 @@ public class AddRoom extends javax.swing.JFrame {
 
     private void AddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddActionPerformed
       try{ 
-        int noOfPersons = Integer.parseInt(NoOfPersons.getText());//get data from no of person text feild
+        String typ = type.getSelectedItem().toString();//get data from no of person text feild
         String con = condition.getSelectedItem().toString();
-        int condValue=2;//when room is ac set 1 for condValue or room is non ac set 0 to condValue
+        int condValue=2,typValue=2;//when room is ac set 1 for condValue or room is non ac set 0 to condValue
         if(con.equals("AC")){
             condValue = 1;
         }else if(con.equals("NON-AC")){
             condValue = 0;
         }
-       if(noOfPersons > 0){ 
+        if(typ.equals("Family")){
+            typValue = 0;
+        }else if(typ.equals("Couple")){
+            typValue = 1;
+        }
+       
        String sql = "INSERT INTO rooms (no_of_persons,ac_or_non) VALUES (?,?);";//sql query for insert a room
        PreparedStatement statement = dbconn.conn.prepareStatement(sql);
-       statement.setInt(1, noOfPersons);
+       statement.setInt(1, typValue);
        statement.setInt(2, condValue);
        int rowsInsert = statement.executeUpdate();
        if(rowsInsert > 0){
@@ -182,9 +178,7 @@ public class AddRoom extends javax.swing.JFrame {
         }else if(rowsInsert == 0){
             JOptionPane.showMessageDialog(null, "Room is not inserted");
             }
-       }else{
-           JOptionPane.showMessageDialog(null, "Enter Valeda persons number");
-       }
+       
       }catch(Exception ex){
           JOptionPane.showMessageDialog(null, "Exception");
       }
@@ -229,11 +223,11 @@ public class AddRoom extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Add;
     private javax.swing.JLabel AddRoom;
-    private javax.swing.JTextField NoOfPersons;
     private javax.swing.JButton close;
     private javax.swing.JComboBox<String> condition;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JComboBox<String> type;
     // End of variables declaration//GEN-END:variables
 }
