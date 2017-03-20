@@ -157,18 +157,18 @@ public class AddRoom extends javax.swing.JFrame {
         String typ = type.getSelectedItem().toString();//get data from no of person text feild
         String con = condition.getSelectedItem().toString();
         int condValue=2,typValue=2;//when room is ac set 1 for condValue or room is non ac set 0 to condValue
-        if(con.equals("AC")){
+        if(con.equals("AC")){//if value is 1 room is ac
             condValue = 1;
-        }else if(con.equals("NON-AC")){
+        }else if(con.equals("NON-AC")){//value is 0 then room is non ac
             condValue = 0;
         }
-        if(typ.equals("Family")){
+        if(typ.equals("Family")){//value is 0 room is family room
             typValue = 0;
-        }else if(typ.equals("Couple")){
+        }else if(typ.equals("Couple")){//value is 1 then room is couple room
             typValue = 1;
         }
        
-       String sql = "INSERT INTO rooms (no_of_persons,ac_or_non) VALUES (?,?);";//sql query for insert a room
+       String sql = "INSERT INTO rooms (type,ac_or_non) VALUES (?,?);";//sql query for insert a room
        PreparedStatement statement = dbconn.conn.prepareStatement(sql);
        statement.setInt(1, typValue);
        statement.setInt(2, condValue);
