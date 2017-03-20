@@ -8,6 +8,7 @@ package simplehotelmanagementsystem;
 import javax.swing.JOptionPane;
 import database.connectDB;
 import java.sql.*;
+import java.util.ArrayList;
 
 /**
  *
@@ -139,7 +140,6 @@ public class AvalableRoom extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void checkbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkbtnActionPerformed
-       try{
            String typ = type.getSelectedItem().toString();//get user selected values
            String cond = condition.getSelectedItem().toString();
            int typValue=2,condValue=2;
@@ -153,6 +153,20 @@ public class AvalableRoom extends javax.swing.JFrame {
            }else if(cond.equals("NON-AC")){
                condValue = 0;
            }
+        try{
+//           String typ = type.getSelectedItem().toString();//get user selected values
+//           String cond = condition.getSelectedItem().toString();
+//           int typValue=2,condValue=2;
+//           if(typ.equals("Couple")){//if type is couple set 1 to typValue else type is family set 0 to typValue 
+//               typValue = 1;
+//           }else if(typ.equals("Family")){
+//               typValue = 0; 
+//           }
+//           if(cond.equals("AC")){//if room is ac then set 1 to condValue else room is non-ac set 0 to condValue
+//               condValue = 1;
+//           }else if(cond.equals("NON-AC")){
+//               condValue = 0;
+//           }
            String sql ="SELECT id FROM rooms WHERE type=? AND ac_or_non=?";//sql query
            
            PreparedStatement statement = dbconn.conn.prepareStatement(sql);//prepare query statement for db connection
@@ -160,14 +174,18 @@ public class AvalableRoom extends javax.swing.JFrame {
            statement.setInt(2,condValue);
            
            ResultSet result = statement.executeQuery();//execute query and get result
-           String res[] = null;
-           int i = 0;
-           while(result.next()){
-              String id = String.valueOf(result.getInt("id"));
-               res[i] = id;
-               i++;
-               //roomidtxt.setText(id +", ");
+           
+           for(int i = 0;result.next(); i++){
+              rs.add(Integer.toString(result.getInt(i)));
+              System.out.println("ok");
+              //int id = result.getInt("id");
+              
+           //    roomidtxt.setText(id);
           }
+//           for(int j=0; j<rs.length; j++){
+//               roomidtxt.setText(rs[i]+ ", ");
+//           }
+           
        }catch(Exception ex){
            JOptionPane.showMessageDialog(null, "Exception");
        }
