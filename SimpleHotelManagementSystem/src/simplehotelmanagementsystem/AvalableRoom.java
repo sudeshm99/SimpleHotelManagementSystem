@@ -153,6 +153,7 @@ public class AvalableRoom extends javax.swing.JFrame {
            }else if(cond.equals("NON-AC")){
                condValue = 0;
            }
+           
         try{
 //           String typ = type.getSelectedItem().toString();//get user selected values
 //           String cond = condition.getSelectedItem().toString();
@@ -174,17 +175,19 @@ public class AvalableRoom extends javax.swing.JFrame {
            statement.setInt(2,condValue);
            
            ResultSet result = statement.executeQuery();//execute query and get result
+           String st = "";
            
            for(int i = 0;result.next(); i++){
-              rs.add(Integer.toString(result.getInt(i)));
-              System.out.println("ok");
-              //int id = result.getInt("id");
-              
-           //    roomidtxt.setText(id);
-          }
-//           for(int j=0; j<rs.length; j++){
-//               roomidtxt.setText(rs[i]+ ", ");
-//           }
+              int id = result.getInt("id");
+              st += Integer.toString(id)+"  ";
+            
+            }
+           
+          // st += "\b\b";
+           
+           System.out.println(st);
+           roomidtxt.setText(st);
+          
            
        }catch(Exception ex){
            JOptionPane.showMessageDialog(null, "Exception");
