@@ -5,16 +5,21 @@
  */
 package simplehotelmanagementsystem;
 
+import javax.swing.JOptionPane;
+import database.connectDB;
+import java.sql.*;
+
 /**
  *
  * @author root
  */
 public class AvalableRoom extends javax.swing.JFrame {
-
+     connectDB dbconn = new connectDB();
     /**
      * Creates new form AvalableRoom
      */
     public AvalableRoom() {
+       dbconn.connect();
         initComponents();
     }
 
@@ -29,19 +34,19 @@ public class AvalableRoom extends javax.swing.JFrame {
 
         jDesktopPane1 = new javax.swing.JDesktopPane();
         noofperl = new javax.swing.JLabel();
-        acnonc = new javax.swing.JComboBox<>();
+        condition = new javax.swing.JComboBox<>();
         acnonl = new javax.swing.JLabel();
         check = new javax.swing.JLabel();
         checkbtn = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         roomidtxt = new javax.swing.JTextArea();
-        cplorfmly = new javax.swing.JComboBox<>();
+        type = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         noofperl.setText("Couple or Family");
 
-        acnonc.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "AC", "NON-AC" }));
+        condition.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "AC", "NON-AC" }));
 
         acnonl.setText("AC or NON-AC");
 
@@ -49,20 +54,25 @@ public class AvalableRoom extends javax.swing.JFrame {
         check.setText("Check Avalable Rooms");
 
         checkbtn.setText("check");
+        checkbtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                checkbtnActionPerformed(evt);
+            }
+        });
 
         roomidtxt.setColumns(20);
         roomidtxt.setRows(5);
         jScrollPane1.setViewportView(roomidtxt);
 
-        cplorfmly.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Couple", "Family" }));
+        type.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Couple", "Family" }));
 
         jDesktopPane1.setLayer(noofperl, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(acnonc, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(condition, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(acnonl, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(check, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(checkbtn, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(jScrollPane1, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(cplorfmly, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(type, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
         jDesktopPane1.setLayout(jDesktopPane1Layout);
@@ -79,9 +89,9 @@ public class AvalableRoom extends javax.swing.JFrame {
                     .addComponent(noofperl))
                 .addGap(18, 18, 18)
                 .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(acnonc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(condition, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(checkbtn)
-                    .addComponent(cplorfmly, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(type, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(144, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -96,11 +106,11 @@ public class AvalableRoom extends javax.swing.JFrame {
                 .addGap(22, 22, 22)
                 .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(acnonl)
-                    .addComponent(acnonc, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(condition, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(noofperl)
-                    .addComponent(cplorfmly, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(type, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(checkbtn)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
@@ -127,6 +137,42 @@ public class AvalableRoom extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void checkbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkbtnActionPerformed
+       try{
+           String typ = type.getSelectedItem().toString();//get user selected values
+           String cond = condition.getSelectedItem().toString();
+           int typValue=2,condValue=2;
+           if(typ.equals("Couple")){//if type is couple set 1 to typValue else type is family set 0 to typValue 
+               typValue = 1;
+           }else if(typ.equals("Family")){
+               typValue = 0; 
+           }
+           if(cond.equals("AC")){//if room is ac then set 1 to condValue else room is non-ac set 0 to condValue
+               condValue = 1;
+           }else if(cond.equals("NON-AC")){
+               condValue = 0;
+           }
+           String sql ="SELECT id FROM rooms WHERE type=? AND ac_or_non=?";//sql query
+           
+           PreparedStatement statement = dbconn.conn.prepareStatement(sql);//prepare query statement for db connection
+           statement.setInt(1,typValue);//complete statement
+           statement.setInt(2,condValue);
+           
+           ResultSet result = statement.executeQuery();//execute query and get result
+           String res[] = null;
+           int i = 0;
+           while(result.next()){
+              String id = String.valueOf(result.getInt("id"));
+               res[i] = id;
+               i++;
+               //roomidtxt.setText(id +", ");
+          }
+       }catch(Exception ex){
+           JOptionPane.showMessageDialog(null, "Exception");
+       }
+       
+    }//GEN-LAST:event_checkbtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -164,14 +210,14 @@ public class AvalableRoom extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> acnonc;
     private javax.swing.JLabel acnonl;
     private javax.swing.JLabel check;
     private javax.swing.JButton checkbtn;
-    private javax.swing.JComboBox<String> cplorfmly;
+    private javax.swing.JComboBox<String> condition;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel noofperl;
     private javax.swing.JTextArea roomidtxt;
+    private javax.swing.JComboBox<String> type;
     // End of variables declaration//GEN-END:variables
 }
