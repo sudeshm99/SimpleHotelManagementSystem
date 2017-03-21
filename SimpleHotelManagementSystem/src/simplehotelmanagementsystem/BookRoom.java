@@ -27,31 +27,54 @@ public class BookRoom extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jDesktopPane1 = new javax.swing.JDesktopPane();
+        roomID = new javax.swing.JDesktopPane();
         ReserveL = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        roomIDT = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         ReserveL.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         ReserveL.setText("Room Resevation ");
 
-        jDesktopPane1.setLayer(ReserveL, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLabel1.setText("Room ID");
 
-        javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
-        jDesktopPane1.setLayout(jDesktopPane1Layout);
-        jDesktopPane1Layout.setHorizontalGroup(
-            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(ReserveL)
-                .addContainerGap(241, Short.MAX_VALUE))
+        roomIDT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                roomIDTActionPerformed(evt);
+            }
+        });
+
+        roomID.setLayer(ReserveL, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        roomID.setLayer(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        roomID.setLayer(roomIDT, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        javax.swing.GroupLayout roomIDLayout = new javax.swing.GroupLayout(roomID);
+        roomID.setLayout(roomIDLayout);
+        roomIDLayout.setHorizontalGroup(
+            roomIDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(roomIDLayout.createSequentialGroup()
+                .addGroup(roomIDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(roomIDLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(ReserveL))
+                    .addGroup(roomIDLayout.createSequentialGroup()
+                        .addGap(83, 83, 83)
+                        .addComponent(jLabel1)
+                        .addGap(47, 47, 47)
+                        .addComponent(roomIDT, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(104, Short.MAX_VALUE))
         );
-        jDesktopPane1Layout.setVerticalGroup(
-            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jDesktopPane1Layout.createSequentialGroup()
+        roomIDLayout.setVerticalGroup(
+            roomIDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(roomIDLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(ReserveL)
-                .addContainerGap(265, Short.MAX_VALUE))
+                .addGap(29, 29, 29)
+                .addGroup(roomIDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(roomIDT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(213, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -60,19 +83,23 @@ public class BookRoom extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jDesktopPane1)
+                .addComponent(roomID)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jDesktopPane1)
+                .addComponent(roomID)
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void roomIDTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_roomIDTActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_roomIDTActionPerformed
 
     /**
      * @param args the command line arguments
@@ -111,6 +138,8 @@ public class BookRoom extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel ReserveL;
-    private javax.swing.JDesktopPane jDesktopPane1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JDesktopPane roomID;
+    private javax.swing.JTextField roomIDT;
     // End of variables declaration//GEN-END:variables
 }
