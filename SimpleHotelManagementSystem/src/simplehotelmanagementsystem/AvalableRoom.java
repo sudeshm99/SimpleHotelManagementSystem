@@ -23,7 +23,7 @@ public class AvalableRoom extends javax.swing.JFrame {
        dbconn.connect();
        
         initComponents();
-        room();
+       
       
        
     }
@@ -209,32 +209,32 @@ public class AvalableRoom extends javax.swing.JFrame {
         jDesktopPane1Layout.setHorizontalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(check)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(jDesktopPane1Layout.createSequentialGroup()
                 .addGap(14, 14, 14)
                 .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                        .addComponent(RoomPanal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 92, Short.MAX_VALUE))
+                        .addComponent(acnonl)
+                        .addGap(40, 40, 40))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createSequentialGroup()
+                        .addComponent(noofperl)
+                        .addGap(18, 18, 18)))
+                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                        .addComponent(condition, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jDesktopPane1Layout.createSequentialGroup()
                         .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                                .addComponent(acnonl)
-                                .addGap(40, 40, 40))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createSequentialGroup()
-                                .addComponent(noofperl)
-                                .addGap(18, 18, 18)))
-                        .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                                .addComponent(condition, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(type, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(checkbtn))
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
+                            .addComponent(type, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(checkbtn))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+            .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(check))
+                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                        .addGap(68, 68, 68)
+                        .addComponent(RoomPanal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(0, 38, Short.MAX_VALUE))
         );
         jDesktopPane1Layout.setVerticalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -291,30 +291,17 @@ public class AvalableRoom extends javax.swing.JFrame {
                condValue = 0;
            }
            
-        //try{
-//           String typ = type.getSelectedItem().toString();//get user selected values
-//           String cond = condition.getSelectedItem().toString();
-//           int typValue=2,condValue=2;
-//           if(typ.equals("Couple")){//if type is couple set 1 to typValue else type is family set 0 to typValue 
-//               typValue = 1;
-//           }else if(typ.equals("Family")){
-//               typValue = 0; 
-//           }
-//           if(cond.equals("AC")){//if room is ac then set 1 to condValue else room is non-ac set 0 to condValue
-//               condValue = 1;
-//           }else if(cond.equals("NON-AC")){
-//               condValue = 0;
-//           }
-//           String sql ="SELECT id FROM rooms WHERE type=? AND ac_or_non=?";//sql query
-//           
-//           PreparedStatement statement = dbconn.conn.prepareStatement(sql);//prepare query statement for db connection
-//           statement.setInt(1,typValue);//complete statement
-//           statement.setInt(2,condValue);
-//           
-//           ResultSet result = statement.executeQuery();//execute query and get result
-//           String st = "";
-//           
-//           for(int i = 0;result.next(); i++){
+        try{
+         
+           String sql ="SELECT id FROM rooms WHERE type=? AND ac_or_non=?";//sql query
+           
+           PreparedStatement statement = dbconn.conn.prepareStatement(sql);//prepare query statement for db connection
+           statement.setInt(1,typValue);//complete statement
+           statement.setInt(2,condValue);           
+           ResultSet result = statement.executeQuery();//execute query and get result
+           String st = "";
+           
+ //          for(int i = 0;result.next(); i++){
 //              int id = result.getInt("id");
 //              st += Integer.toString(id)+"  ";
 //            
@@ -326,9 +313,9 @@ public class AvalableRoom extends javax.swing.JFrame {
 //           roomidtxt.setText(st);
 //          
 //           
-//       }catch(Exception ex){
-//           JOptionPane.showMessageDialog(null, "Exception");
-//       }
+       }catch(Exception ex){
+           JOptionPane.showMessageDialog(null, "Exception");
+       }
        
     }//GEN-LAST:event_checkbtnActionPerformed
 
@@ -336,24 +323,7 @@ public class AvalableRoom extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_Room9ActionPerformed
 
-    public void room(){
-       Room1.setVisible(false);
-       Room2.setVisible(false);
-       Room3.setVisible(false);
-       Room4.setVisible(false);
-       Room5.setVisible(false);
-       Room6.setVisible(false);
-       Room7.setVisible(false);
-       Room8.setVisible(false);
-       Room9.setVisible(false);
-       Room10.setVisible(false);
-       Room11.setVisible(false);
-       Room12.setVisible(false);
-       Room13.setVisible(false);
-       Room14.setVisible(false);
-       Room15.setVisible(false);
-       //RoomPanal.setVisible(false);
-    }
+    
     private void Room7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Room7ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_Room7ActionPerformed
