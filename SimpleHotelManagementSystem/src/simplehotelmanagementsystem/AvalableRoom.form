@@ -51,67 +51,39 @@
                   <Component id="check" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
               </Group>
-              <Group type="102" alignment="1" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
-                          <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
-                          <Component id="acnonl" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+                          <Component id="RoomPanal" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="0" pref="92" max="32767" attributes="0"/>
                       </Group>
-                      <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="noofperl" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="condition" min="-2" max="-2" attributes="0"/>
-                      <Component id="type" min="-2" max="-2" attributes="0"/>
-                      <Component id="checkbtn" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                              <Component id="Room1" max="32767" attributes="0"/>
-                              <Component id="Room6" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="Room11" alignment="1" max="32767" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="Room7" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="Room12" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="Room8" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="Room9" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="Room10" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="Room13" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="Room14" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="Room15" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="acnonl" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
                               </Group>
-                              <Group type="102" attributes="0">
-                                  <Component id="Room2" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="Room3" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="Room4" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="Room5" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Component id="noofperl" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="condition" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="type" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkbtn" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
                   </Group>
-                  <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -120,7 +92,7 @@
               <Group type="102" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="check" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="acnonl" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="condition" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
@@ -132,31 +104,9 @@
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="checkbtn" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="Room1" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
-                      <Component id="Room2" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="Room3" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="Room4" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="Room5" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="Room6" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="Room7" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="Room8" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="Room9" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="Room10" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="Room14" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="Room11" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="Room13" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="Room12" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="Room15" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace pref="105" max="32767" attributes="0"/>
+                  <Component id="RoomPanal" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="35" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -214,90 +164,182 @@
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JButton" name="Room1">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="01"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Room1ActionPerformed"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JButton" name="Room4">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="04"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JButton" name="Room5">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="05"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JButton" name="Room3">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="03"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JButton" name="Room2">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="02"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JButton" name="Room6">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="06"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JButton" name="Room7">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="07"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Room7ActionPerformed"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JButton" name="Room8">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="08"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JButton" name="Room9">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="09"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Room9ActionPerformed"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JButton" name="Room10">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="10"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JButton" name="Room11">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="11"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JButton" name="Room14">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="14"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JButton" name="Room13">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="13"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JButton" name="Room12">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="12"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JButton" name="Room15">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="15"/>
-          </Properties>
-        </Component>
+        <Container class="javax.swing.JPanel" name="RoomPanal">
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="Room11" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="Room12" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="Room1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="Room6" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="Room7" min="-2" max="-2" attributes="0"/>
+                                  <Component id="Room2" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
+                      <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Component id="Room13" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="Room14" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="Room15" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <Component id="Room8" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="Room9" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="Room10" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Component id="Room3" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="Room4" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="Room5" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="Room4" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="Room5" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="Room3" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="Room2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="Room1" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="Room8" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="Room9" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="Room10" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="Room7" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="Room6" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="Room14" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="Room13" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="Room15" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="Room12" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="Room11" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+          <SubComponents>
+            <Component class="javax.swing.JButton" name="Room11">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="11"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="Room1">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="01"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Room1ActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="Room12">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="12"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="Room6">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="06"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="Room7">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="07"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Room7ActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="Room8">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="08"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="Room9">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="09"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Room9ActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="Room10">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="10"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="Room4">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="04"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="Room13">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="13"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="Room5">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="05"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="Room14">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="14"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="Room3">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="03"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="Room15">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="15"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="Room2">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="02"/>
+              </Properties>
+            </Component>
+          </SubComponents>
+        </Container>
       </SubComponents>
     </Container>
   </SubComponents>
