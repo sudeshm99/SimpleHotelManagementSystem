@@ -311,13 +311,13 @@ public class AvalableRoom extends javax.swing.JFrame {
            PreparedStatement statement = dbconn.conn.prepareStatement(sql);//prepare query statement for db connection
            statement.setInt(1,condValue);//complete statement
            statement.setInt(2,typValue);           
-           ResultSet result = statement.executeQuery();//execute query and get result
-           String st = "";
+           ResultSet     result = statement.executeQuery();//execute query and get result
+           
            if(result != null){
            for(int i = 0;result.next(); i++){
               int id = result.getInt("id");
               //System.out.println(id);
-              switch(id){
+              switch(id){//room is avalable them set buttom visible 
                   case 1:Room1.setVisible(true);break;
                   case 2:Room2.setVisible(true);break;
                   case 3:Room3.setVisible(true);break;
@@ -335,17 +335,10 @@ public class AvalableRoom extends javax.swing.JFrame {
                   case 15:Room15.setVisible(true);break;
                   default: JOptionPane.showMessageDialog(null, "There is no rooms"); break;
               }
-              st = "Room"+Integer.toString(id);
-                System.out.println(id);
-                
-              //st += Integer.toString(id)+"  ";
-            
+                          
             }
            
-          // st += "\b\b";
-           
-           //System.out.println(st);
-//          roomidtxt.setText(st);
+         
            }else if(result == null){
                JOptionPane.showMessageDialog(null,"There is no rooms");//result null there is no rooms
            }
