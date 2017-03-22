@@ -88,6 +88,11 @@ public class AvalableRoom extends javax.swing.JFrame {
         type.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Couple", "Family" }));
 
         Room11.setText("11");
+        Room11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Room11ActionPerformed(evt);
+            }
+        });
 
         Room1.setText("01");
         Room1.addActionListener(new java.awt.event.ActionListener() {
@@ -97,8 +102,18 @@ public class AvalableRoom extends javax.swing.JFrame {
         });
 
         Room12.setText("12");
+        Room12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Room12ActionPerformed(evt);
+            }
+        });
 
         Room6.setText("06");
+        Room6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Room6ActionPerformed(evt);
+            }
+        });
 
         Room7.setText("07");
         Room7.addActionListener(new java.awt.event.ActionListener() {
@@ -108,6 +123,11 @@ public class AvalableRoom extends javax.swing.JFrame {
         });
 
         Room8.setText("08");
+        Room8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Room8ActionPerformed(evt);
+            }
+        });
 
         Room9.setText("09");
         Room9.addActionListener(new java.awt.event.ActionListener() {
@@ -117,20 +137,60 @@ public class AvalableRoom extends javax.swing.JFrame {
         });
 
         Room10.setText("10");
+        Room10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Room10ActionPerformed(evt);
+            }
+        });
 
         Room4.setText("04");
+        Room4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Room4ActionPerformed(evt);
+            }
+        });
 
         Room13.setText("13");
+        Room13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Room13ActionPerformed(evt);
+            }
+        });
 
         Room5.setText("05");
+        Room5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Room5ActionPerformed(evt);
+            }
+        });
 
         Room14.setText("14");
+        Room14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Room14ActionPerformed(evt);
+            }
+        });
 
         Room3.setText("03");
+        Room3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Room3ActionPerformed(evt);
+            }
+        });
 
         Room15.setText("15");
+        Room15.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Room15ActionPerformed(evt);
+            }
+        });
 
         Room2.setText("02");
+        Room2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Room2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout RoomPanalLayout = new javax.swing.GroupLayout(RoomPanal);
         RoomPanal.setLayout(RoomPanalLayout);
@@ -350,16 +410,28 @@ public class AvalableRoom extends javax.swing.JFrame {
     }//GEN-LAST:event_checkbtnActionPerformed
 
     private void Room9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Room9ActionPerformed
-        // TODO add your handling code here:
+          
+        bookRoom booking = new bookRoom();
+        booking.getid(9);
+        booking.setVisible(true);
+        dispose();
     }//GEN-LAST:event_Room9ActionPerformed
 
     
     private void Room7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Room7ActionPerformed
-        // TODO add your handling code here:
+          
+        bookRoom booking = new bookRoom();
+        booking.getid(7);
+        booking.setVisible(true);
+        dispose();
     }//GEN-LAST:event_Room7ActionPerformed
 
     private void Room1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Room1ActionPerformed
-        // TODO add your handling code here:
+        
+        bookRoom booking = new bookRoom();
+        booking.getid(1);
+        booking.setVisible(true);
+        dispose();
     }//GEN-LAST:event_Room1ActionPerformed
 
     private void closeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeActionPerformed
@@ -367,6 +439,102 @@ public class AvalableRoom extends javax.swing.JFrame {
         reception.setVisible(true);//close current window and open reseptionist home page
         dispose();
     }//GEN-LAST:event_closeActionPerformed
+
+    private void Room2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Room2ActionPerformed
+         
+        bookRoom booking = new bookRoom();
+        booking.getid(2);
+        booking.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_Room2ActionPerformed
+
+    private void Room4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Room4ActionPerformed
+          
+        bookRoom booking = new bookRoom();
+        booking.getid(4);
+        booking.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_Room4ActionPerformed
+
+    private void Room3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Room3ActionPerformed
+          
+        bookRoom booking = new bookRoom();
+        booking.getid(3);
+        booking.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_Room3ActionPerformed
+
+    private void Room5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Room5ActionPerformed
+          
+        bookRoom booking = new bookRoom();
+        booking.getid(5);
+        booking.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_Room5ActionPerformed
+
+    private void Room6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Room6ActionPerformed
+          
+        bookRoom booking = new bookRoom();
+        booking.getid(6);
+        booking.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_Room6ActionPerformed
+
+    private void Room8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Room8ActionPerformed
+          
+        bookRoom booking = new bookRoom();
+        booking.getid(8);
+        booking.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_Room8ActionPerformed
+
+    private void Room10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Room10ActionPerformed
+          
+        bookRoom booking = new bookRoom();
+        booking.getid(10);
+        booking.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_Room10ActionPerformed
+
+    private void Room11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Room11ActionPerformed
+          
+        bookRoom booking = new bookRoom();
+        booking.getid(11);
+        booking.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_Room11ActionPerformed
+
+    private void Room12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Room12ActionPerformed
+         
+        bookRoom booking = new bookRoom();
+        booking.getid(12);
+        booking.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_Room12ActionPerformed
+
+    private void Room13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Room13ActionPerformed
+          
+        bookRoom booking = new bookRoom();
+        booking.getid(13);
+        booking.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_Room13ActionPerformed
+
+    private void Room14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Room14ActionPerformed
+          
+        bookRoom booking = new bookRoom();
+        booking.getid(14);
+        booking.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_Room14ActionPerformed
+
+    private void Room15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Room15ActionPerformed
+          
+        bookRoom booking = new bookRoom();
+        booking.getid(15);
+        booking.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_Room15ActionPerformed
     private void roomVisibility(){
             Room1.setVisible(false);
             Room2.setVisible(false);
