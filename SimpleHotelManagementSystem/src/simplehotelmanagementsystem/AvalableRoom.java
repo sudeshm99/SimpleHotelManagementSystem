@@ -293,11 +293,11 @@ public class AvalableRoom extends javax.swing.JFrame {
            
         try{
          
-           String sql ="SELECT id FROM rooms WHERE type=? AND ac_or_non=?";//sql query
+           String sql ="SELECT id FROM rooms WHERE EXISTS (SELECT room_id FROM booking WHERE booking.room_id = rooms.id and rooms.ac_or_non = ? and rooms.type = ?);";//sql query
            
            PreparedStatement statement = dbconn.conn.prepareStatement(sql);//prepare query statement for db connection
-           statement.setInt(1,typValue);//complete statement
-           statement.setInt(2,condValue);           
+           statement.setInt(1,condValue);//complete statement
+           statement.setInt(2,typValue);           
            ResultSet result = statement.executeQuery();//execute query and get result
            String st = "";
            
