@@ -7,6 +7,7 @@ package simplehotelmanagementsystem;
 
 import javax.swing.JOptionPane;
 import database.connectDB;
+import java.awt.Cursor;
 import java.sql.*;
 import java.util.ArrayList;
 
@@ -23,7 +24,8 @@ public class AvalableRoom extends javax.swing.JFrame {
        dbconn.connect();
        
         initComponents();
-       
+        
+       roomVisibility();
       
        
     }
@@ -37,7 +39,8 @@ public class AvalableRoom extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jDesktopPane1 = new javax.swing.JDesktopPane();
+        jButton1 = new javax.swing.JButton();
+        Dpanal = new javax.swing.JDesktopPane();
         noofperl = new javax.swing.JLabel();
         condition = new javax.swing.JComboBox<>();
         acnonl = new javax.swing.JLabel();
@@ -60,6 +63,9 @@ public class AvalableRoom extends javax.swing.JFrame {
         Room3 = new javax.swing.JButton();
         Room15 = new javax.swing.JButton();
         Room2 = new javax.swing.JButton();
+        close = new javax.swing.JButton();
+
+        jButton1.setText("jButton1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -148,20 +154,17 @@ public class AvalableRoom extends javax.swing.JFrame {
                 .addGap(6, 6, 6)
                 .addGroup(RoomPanalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(RoomPanalLayout.createSequentialGroup()
-                        .addGroup(RoomPanalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(RoomPanalLayout.createSequentialGroup()
-                                .addComponent(Room13)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(Room14)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(Room15))
-                            .addGroup(RoomPanalLayout.createSequentialGroup()
-                                .addComponent(Room8)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(Room9)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(Room10)))
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addComponent(Room13)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(Room14)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(Room15))
+                    .addGroup(RoomPanalLayout.createSequentialGroup()
+                        .addComponent(Room8)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(Room9)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(Room10))
                     .addGroup(RoomPanalLayout.createSequentialGroup()
                         .addComponent(Room3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -196,64 +199,74 @@ public class AvalableRoom extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jDesktopPane1.setLayer(noofperl, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(condition, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(acnonl, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(check, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(checkbtn, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(type, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(RoomPanal, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        close.setText("Close");
+        close.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                closeActionPerformed(evt);
+            }
+        });
 
-        javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
-        jDesktopPane1.setLayout(jDesktopPane1Layout);
-        jDesktopPane1Layout.setHorizontalGroup(
-            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jDesktopPane1Layout.createSequentialGroup()
+        Dpanal.setLayer(noofperl, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        Dpanal.setLayer(condition, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        Dpanal.setLayer(acnonl, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        Dpanal.setLayer(check, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        Dpanal.setLayer(checkbtn, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        Dpanal.setLayer(type, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        Dpanal.setLayer(RoomPanal, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        Dpanal.setLayer(close, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        javax.swing.GroupLayout DpanalLayout = new javax.swing.GroupLayout(Dpanal);
+        Dpanal.setLayout(DpanalLayout);
+        DpanalLayout.setHorizontalGroup(
+            DpanalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(DpanalLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(check)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(DpanalLayout.createSequentialGroup()
                 .addGap(14, 14, 14)
-                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                        .addComponent(acnonl)
-                        .addGap(40, 40, 40))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createSequentialGroup()
-                        .addComponent(noofperl)
-                        .addGap(18, 18, 18)))
-                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                        .addComponent(condition, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                        .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(DpanalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(DpanalLayout.createSequentialGroup()
+                        .addGroup(DpanalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(DpanalLayout.createSequentialGroup()
+                                .addComponent(acnonl)
+                                .addGap(40, 40, 40))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DpanalLayout.createSequentialGroup()
+                                .addComponent(noofperl)
+                                .addGap(18, 18, 18)))
+                        .addGroup(DpanalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(condition, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(type, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(checkbtn))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-            .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(check))
-                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                        .addGap(68, 68, 68)
-                        .addComponent(RoomPanal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 38, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(DpanalLayout.createSequentialGroup()
+                        .addComponent(RoomPanal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(close)))
+                .addContainerGap())
         );
-        jDesktopPane1Layout.setVerticalGroup(
-            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jDesktopPane1Layout.createSequentialGroup()
+        DpanalLayout.setVerticalGroup(
+            DpanalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(DpanalLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(check)
                 .addGap(18, 18, 18)
-                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(DpanalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(acnonl)
                     .addComponent(condition, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(DpanalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(noofperl)
                     .addComponent(type, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(checkbtn)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(RoomPanal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(35, Short.MAX_VALUE))
+                .addContainerGap(29, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DpanalLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(close)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -262,14 +275,14 @@ public class AvalableRoom extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jDesktopPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Dpanal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jDesktopPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Dpanal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -293,26 +306,50 @@ public class AvalableRoom extends javax.swing.JFrame {
            
         try{
          
-           String sql ="SELECT id FROM rooms WHERE EXISTS (SELECT room_id FROM booking WHERE booking.room_id = rooms.id and rooms.ac_or_non = ? and rooms.type = ?);";//sql query
+           String sql = "SELECT id FROM rooms WHERE (NOT EXISTS (SELECT room_id FROM booking WHERE rooms.id = booking.room_id) ) AND ac_or_non=? AND type=?;";//sql query
            
            PreparedStatement statement = dbconn.conn.prepareStatement(sql);//prepare query statement for db connection
            statement.setInt(1,condValue);//complete statement
            statement.setInt(2,typValue);           
            ResultSet result = statement.executeQuery();//execute query and get result
            String st = "";
+           if(result != null){
+           for(int i = 0;result.next(); i++){
+              int id = result.getInt("id");
+              //System.out.println(id);
+              switch(id){
+                  case 1:Room1.setVisible(true);break;
+                  case 2:Room2.setVisible(true);break;
+                  case 3:Room3.setVisible(true);break;
+                  case 4:Room4.setVisible(true);break;
+                  case 5:Room5.setVisible(true);break;
+                  case 6:Room6.setVisible(true);break;
+                  case 7:Room7.setVisible(true);break;
+                  case 8:Room8.setVisible(true);break;
+                  case 9:Room9.setVisible(true);break;
+                  case 10:Room10.setVisible(true);break;
+                  case 11:Room11.setVisible(true);break;
+                  case 12:Room12.setVisible(true);break;
+                  case 13:Room13.setVisible(true);break;
+                  case 14:Room14.setVisible(true);break;
+                  case 15:Room15.setVisible(true);break;
+                  default: JOptionPane.showMessageDialog(null, "There is no rooms"); break;
+              }
+              st = "Room"+Integer.toString(id);
+                System.out.println(id);
+                
+              //st += Integer.toString(id)+"  ";
+            
+            }
            
- //          for(int i = 0;result.next(); i++){
-//              int id = result.getInt("id");
-//              st += Integer.toString(id)+"  ";
-//            
-//            }
-//           
-//          // st += "\b\b";
-//           
-//           System.out.println(st);
-//           roomidtxt.setText(st);
-//          
-//           
+          // st += "\b\b";
+           
+           //System.out.println(st);
+//          roomidtxt.setText(st);
+           }else if(result == null){
+               JOptionPane.showMessageDialog(null,"There is no rooms");//result null there is no rooms
+           }
+           
        }catch(Exception ex){
            JOptionPane.showMessageDialog(null, "Exception");
        }
@@ -332,6 +369,32 @@ public class AvalableRoom extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_Room1ActionPerformed
 
+    private void closeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeActionPerformed
+        Receptionist reception = new Receptionist();
+        reception.setVisible(true);//close current window and open reseptionist home page
+        dispose();
+    }//GEN-LAST:event_closeActionPerformed
+    private void roomVisibility(){
+            Room1.setVisible(false);
+            Room2.setVisible(false);
+            Room3.setVisible(false);
+            Room4.setVisible(false);
+            Room5.setVisible(false);
+            Room6.setVisible(false);
+            Room7.setVisible(false);
+            Room8.setVisible(false);
+            Room9.setVisible(false);
+            Room10.setVisible(false);
+            Room11.setVisible(false);
+            Room12.setVisible(false);
+            Room13.setVisible(false);
+            Room14.setVisible(false);
+            Room15.setVisible(false);
+            Dpanal.setVisible(true);
+            RoomPanal.setVisible(true);
+            Room1.setCursor(Dpanal.getCursor());
+            
+        }
     /**
      * @param args the command line arguments
      */
@@ -371,6 +434,7 @@ public class AvalableRoom extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JDesktopPane Dpanal;
     private javax.swing.JButton Room1;
     private javax.swing.JButton Room10;
     private javax.swing.JButton Room11;
@@ -390,8 +454,9 @@ public class AvalableRoom extends javax.swing.JFrame {
     private javax.swing.JLabel acnonl;
     private javax.swing.JLabel check;
     private javax.swing.JButton checkbtn;
+    private javax.swing.JButton close;
     private javax.swing.JComboBox<String> condition;
-    private javax.swing.JDesktopPane jDesktopPane1;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel noofperl;
     private javax.swing.JComboBox<String> type;
     // End of variables declaration//GEN-END:variables
