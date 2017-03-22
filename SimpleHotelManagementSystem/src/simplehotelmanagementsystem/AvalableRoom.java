@@ -23,10 +23,7 @@ public class AvalableRoom extends javax.swing.JFrame {
     public AvalableRoom() {
        dbconn.connect();
        
-        initComponents();
-        
-       roomVisibility();
-      
+        initComponents();      
        
     }
 
@@ -88,6 +85,7 @@ public class AvalableRoom extends javax.swing.JFrame {
         type.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Couple", "Family" }));
 
         Room11.setText("11");
+        Room11.setEnabled(false);
         Room11.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Room11ActionPerformed(evt);
@@ -95,6 +93,7 @@ public class AvalableRoom extends javax.swing.JFrame {
         });
 
         Room1.setText("01");
+        Room1.setEnabled(false);
         Room1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Room1ActionPerformed(evt);
@@ -102,6 +101,7 @@ public class AvalableRoom extends javax.swing.JFrame {
         });
 
         Room12.setText("12");
+        Room12.setEnabled(false);
         Room12.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Room12ActionPerformed(evt);
@@ -109,6 +109,7 @@ public class AvalableRoom extends javax.swing.JFrame {
         });
 
         Room6.setText("06");
+        Room6.setEnabled(false);
         Room6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Room6ActionPerformed(evt);
@@ -116,6 +117,7 @@ public class AvalableRoom extends javax.swing.JFrame {
         });
 
         Room7.setText("07");
+        Room7.setEnabled(false);
         Room7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Room7ActionPerformed(evt);
@@ -123,6 +125,7 @@ public class AvalableRoom extends javax.swing.JFrame {
         });
 
         Room8.setText("08");
+        Room8.setEnabled(false);
         Room8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Room8ActionPerformed(evt);
@@ -130,6 +133,7 @@ public class AvalableRoom extends javax.swing.JFrame {
         });
 
         Room9.setText("09");
+        Room9.setEnabled(false);
         Room9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Room9ActionPerformed(evt);
@@ -137,6 +141,7 @@ public class AvalableRoom extends javax.swing.JFrame {
         });
 
         Room10.setText("10");
+        Room10.setEnabled(false);
         Room10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Room10ActionPerformed(evt);
@@ -144,6 +149,7 @@ public class AvalableRoom extends javax.swing.JFrame {
         });
 
         Room4.setText("04");
+        Room4.setEnabled(false);
         Room4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Room4ActionPerformed(evt);
@@ -151,6 +157,7 @@ public class AvalableRoom extends javax.swing.JFrame {
         });
 
         Room13.setText("13");
+        Room13.setEnabled(false);
         Room13.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Room13ActionPerformed(evt);
@@ -158,6 +165,7 @@ public class AvalableRoom extends javax.swing.JFrame {
         });
 
         Room5.setText("05");
+        Room5.setEnabled(false);
         Room5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Room5ActionPerformed(evt);
@@ -165,6 +173,7 @@ public class AvalableRoom extends javax.swing.JFrame {
         });
 
         Room14.setText("14");
+        Room14.setEnabled(false);
         Room14.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Room14ActionPerformed(evt);
@@ -172,6 +181,7 @@ public class AvalableRoom extends javax.swing.JFrame {
         });
 
         Room3.setText("03");
+        Room3.setEnabled(false);
         Room3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Room3ActionPerformed(evt);
@@ -179,6 +189,7 @@ public class AvalableRoom extends javax.swing.JFrame {
         });
 
         Room15.setText("15");
+        Room15.setEnabled(false);
         Room15.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Room15ActionPerformed(evt);
@@ -186,6 +197,7 @@ public class AvalableRoom extends javax.swing.JFrame {
         });
 
         Room2.setText("02");
+        Room2.setEnabled(false);
         Room2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Room2ActionPerformed(evt);
@@ -378,25 +390,27 @@ public class AvalableRoom extends javax.swing.JFrame {
               int id = result.getInt("id");
               //System.out.println(id);
               switch(id){//room is avalable them set buttom visible 
-                  case 1:Room1.setVisible(true);break;
-                  case 2:Room2.setVisible(true);break;
-                  case 3:Room3.setVisible(true);break;
-                  case 4:Room4.setVisible(true);break;
-                  case 5:Room5.setVisible(true);break;
-                  case 6:Room6.setVisible(true);break;
-                  case 7:Room7.setVisible(true);break;
-                  case 8:Room8.setVisible(true);break;
-                  case 9:Room9.setVisible(true);break;
-                  case 10:Room10.setVisible(true);break;
-                  case 11:Room11.setVisible(true);break;
-                  case 12:Room12.setVisible(true);break;
-                  case 13:Room13.setVisible(true);break;
-                  case 14:Room14.setVisible(true);break;
-                  case 15:Room15.setVisible(true);break;
+                  case 1:Room1.setEnabled(true);break;
+                  case 2:Room2.setEnabled(true);break;
+                  case 3:Room3.setEnabled(true);break;
+                  case 4:Room4.setEnabled(true);break;
+                  case 5:Room5.setEnabled(true);break;
+                  case 6:Room6.setEnabled(true);break;
+                  case 7:Room7.setEnabled(true);break;
+                  case 8:Room8.setEnabled(true);break;
+                  case 9:Room9.setEnabled(true);break;
+                  case 10:Room10.setEnabled(true);break;
+                  case 11:Room11.setEnabled(true);break;
+                  case 12:Room12.setEnabled(true);break;
+                  case 13:Room13.setEnabled(true);break;
+                  case 14:Room14.setEnabled(true);break;
+                  case 15:Room15.setEnabled(true);break;
                   default: JOptionPane.showMessageDialog(null, "There is no rooms"); break;
               }
                           
             }
+           //System.out.println(result.getBoolean("id"));
+           
            
          
            }else if(result == null){
@@ -535,27 +549,29 @@ public class AvalableRoom extends javax.swing.JFrame {
         booking.setVisible(true);
         dispose();
     }//GEN-LAST:event_Room15ActionPerformed
-    private void roomVisibility(){
-            Room1.setVisible(false);
-            Room2.setVisible(false);
-            Room3.setVisible(false);
-            Room4.setVisible(false);
-            Room5.setVisible(false);
-            Room6.setVisible(false);
-            Room7.setVisible(false);
-            Room8.setVisible(false);
-            Room9.setVisible(false);
-            Room10.setVisible(false);
-            Room11.setVisible(false);
-            Room12.setVisible(false);
-            Room13.setVisible(false);
-            Room14.setVisible(false);
-            Room15.setVisible(false);
-            Dpanal.setVisible(true);
-            RoomPanal.setVisible(true);
-            Room1.setCursor(Dpanal.getCursor());
-            
-        }
+//    private void roomVisibility(){
+//            Room1.setVisible(false);
+//            Room2.setVisible(false);
+//            Room3.setVisible(false);
+//            Room4.setVisible(false);
+//            Room5.setVisible(false);
+//            Room6.setVisible(false);
+//            Room7.setVisible(false);
+//            Room8.setVisible(false);
+//            Room9.setVisible(false);
+//            Room10.setVisible(false);
+//            Room11.setVisible(false);
+//            Room12.setVisible(false);
+//            Room13.setVisible(false);
+//            Room14.setVisible(false);
+//            Room15.setVisible(false);
+//            Dpanal.setVisible(true);
+//            RoomPanal.setVisible(true);
+//            Room1.setCursor(Dpanal.getCursor());
+//            
+//        }
+
+
     /**
      * @param args the command line arguments
      */

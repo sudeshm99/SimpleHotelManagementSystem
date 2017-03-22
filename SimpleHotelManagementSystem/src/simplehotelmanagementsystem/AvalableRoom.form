@@ -259,6 +259,7 @@
             <Component class="javax.swing.JButton" name="Room11">
               <Properties>
                 <Property name="text" type="java.lang.String" value="11"/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Room11ActionPerformed"/>
@@ -267,6 +268,7 @@
             <Component class="javax.swing.JButton" name="Room1">
               <Properties>
                 <Property name="text" type="java.lang.String" value="01"/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Room1ActionPerformed"/>
@@ -275,6 +277,7 @@
             <Component class="javax.swing.JButton" name="Room12">
               <Properties>
                 <Property name="text" type="java.lang.String" value="12"/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Room12ActionPerformed"/>
@@ -283,6 +286,7 @@
             <Component class="javax.swing.JButton" name="Room6">
               <Properties>
                 <Property name="text" type="java.lang.String" value="06"/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Room6ActionPerformed"/>
@@ -291,6 +295,7 @@
             <Component class="javax.swing.JButton" name="Room7">
               <Properties>
                 <Property name="text" type="java.lang.String" value="07"/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Room7ActionPerformed"/>
@@ -299,6 +304,7 @@
             <Component class="javax.swing.JButton" name="Room8">
               <Properties>
                 <Property name="text" type="java.lang.String" value="08"/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Room8ActionPerformed"/>
@@ -307,6 +313,7 @@
             <Component class="javax.swing.JButton" name="Room9">
               <Properties>
                 <Property name="text" type="java.lang.String" value="09"/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Room9ActionPerformed"/>
@@ -315,6 +322,7 @@
             <Component class="javax.swing.JButton" name="Room10">
               <Properties>
                 <Property name="text" type="java.lang.String" value="10"/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Room10ActionPerformed"/>
@@ -323,6 +331,7 @@
             <Component class="javax.swing.JButton" name="Room4">
               <Properties>
                 <Property name="text" type="java.lang.String" value="04"/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Room4ActionPerformed"/>
@@ -331,6 +340,7 @@
             <Component class="javax.swing.JButton" name="Room13">
               <Properties>
                 <Property name="text" type="java.lang.String" value="13"/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Room13ActionPerformed"/>
@@ -339,6 +349,7 @@
             <Component class="javax.swing.JButton" name="Room5">
               <Properties>
                 <Property name="text" type="java.lang.String" value="05"/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Room5ActionPerformed"/>
@@ -347,6 +358,7 @@
             <Component class="javax.swing.JButton" name="Room14">
               <Properties>
                 <Property name="text" type="java.lang.String" value="14"/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Room14ActionPerformed"/>
@@ -355,6 +367,7 @@
             <Component class="javax.swing.JButton" name="Room3">
               <Properties>
                 <Property name="text" type="java.lang.String" value="03"/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Room3ActionPerformed"/>
@@ -363,6 +376,7 @@
             <Component class="javax.swing.JButton" name="Room15">
               <Properties>
                 <Property name="text" type="java.lang.String" value="15"/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Room15ActionPerformed"/>
@@ -371,6 +385,7 @@
             <Component class="javax.swing.JButton" name="Room2">
               <Properties>
                 <Property name="text" type="java.lang.String" value="02"/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Room2ActionPerformed"/>
