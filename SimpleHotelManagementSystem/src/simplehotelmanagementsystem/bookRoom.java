@@ -286,10 +286,12 @@ public class bookRoom extends javax.swing.JFrame {
 
     private void ReserveDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReserveDateActionPerformed
        ReserveDate.setFormats("yyyy-MM-dd");
+       
     }//GEN-LAST:event_ReserveDateActionPerformed
 
     private void ReturnDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReturnDateActionPerformed
         ReturnDate.setFormats("yyyy-MM-dd");
+       
     }//GEN-LAST:event_ReturnDateActionPerformed
 
     /**
