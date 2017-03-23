@@ -253,10 +253,32 @@ public class bookRoom extends javax.swing.JFrame {
         int cont = Integer.parseInt(ContTxt.getText());
         date1 = ReserveDate.getDate();//get usr selected date
         date2 = ReturnDate.getDate();
-        
+        java.sql.Date sqlDate1 = new java.sql.Date(date1.getDate());
+        java.sql.Date sqlDate2 = new java.sql.Date(date2.getDate());
+        System.out.println(id);
+        System.out.println(nic);
+         System.out.println(name);
+          System.out.println(cont);
+           System.out.println(sqlDate1);
+            System.out.println(sqlDate2);
+             System.out.println("sudesh");
+              System.out.println(1);
         try{
             String sql = "INSERT INTO booking VALUES (?,?,?,?,?,?);";
             PreparedStatement statement = connDB.conn.prepareStatement(sql);
+            statement.setInt(1, id);
+            statement.setString(2, nic);
+            statement.setString(3, name);
+            statement.setInt(3, cont);
+            statement.setDate(4, sqlDate1);
+            statement.setDate(5, sqlDate2);
+            
+            int queryValue = statement.executeUpdate();
+            if(queryValue > 0){
+                JOptionPane.showMessageDialog(null, "Booked room successfuly");
+            }else{
+                JOptionPane.showMessageDialog(null, "System Failear");
+            }
         }catch(Exception ex){
             JOptionPane.showMessageDialog(null, "exception");
         }
