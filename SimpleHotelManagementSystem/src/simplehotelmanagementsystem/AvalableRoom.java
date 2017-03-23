@@ -549,27 +549,7 @@ public class AvalableRoom extends javax.swing.JFrame {
         booking.setVisible(true);
         dispose();
     }//GEN-LAST:event_Room15ActionPerformed
-//    private void roomVisibility(){
-//            Room1.setVisible(false);
-//            Room2.setVisible(false);
-//            Room3.setVisible(false);
-//            Room4.setVisible(false);
-//            Room5.setVisible(false);
-//            Room6.setVisible(false);
-//            Room7.setVisible(false);
-//            Room8.setVisible(false);
-//            Room9.setVisible(false);
-//            Room10.setVisible(false);
-//            Room11.setVisible(false);
-//            Room12.setVisible(false);
-//            Room13.setVisible(false);
-//            Room14.setVisible(false);
-//            Room15.setVisible(false);
-//            Dpanal.setVisible(true);
-//            RoomPanal.setVisible(true);
-//            Room1.setCursor(Dpanal.getCursor());
-//            
-//        }
+
 
 
     /**

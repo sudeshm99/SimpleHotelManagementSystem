@@ -5,22 +5,34 @@
  */
 package simplehotelmanagementsystem;
 
+import java.sql.*;
+import com.mysql.jdbc.Util;
+import java.util.Date;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import org.jdesktop.swingx.JXDatePicker;
+import database.connectDB;
 /**
  *
  * @author root
  */
 public class bookRoom extends javax.swing.JFrame {
-
+    connectDB connDB = new connectDB();
     /**
      * Creates new form bookRoom
      */
     public bookRoom() {
+        
         initComponents();
+        connDB.connect();
+//        UtilDateModel model = new UtilDateModel();
+//JDatePanelImpl datePanel = new JDatePanelImpl(model);
+//JDatePickerImpl datePicker = new JDatePickerImpl(datePanel);
+// 
+//frame.add(datePicker);
     }
 
     /**
@@ -32,6 +44,12 @@ public class bookRoom extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jColorChooser1 = new javax.swing.JColorChooser();
+        jCheckBox1 = new javax.swing.JCheckBox();
+        jDatePickerUtil1 = new org.jdatepicker.util.JDatePickerUtil();
+        jDatePickerUtil2 = new org.jdatepicker.util.JDatePickerUtil();
+        dateComponentFormatter1 = new org.jdatepicker.impl.DateComponentFormatter();
+        utilCalendarModel1 = new org.jdatepicker.impl.UtilCalendarModel();
         jDesktopPane1 = new javax.swing.JDesktopPane();
         BookRoomL = new javax.swing.JLabel();
         idL = new javax.swing.JLabel();
@@ -46,6 +64,10 @@ public class bookRoom extends javax.swing.JFrame {
         ContTxt = new javax.swing.JTextField();
         CloseB = new javax.swing.JButton();
         bookB = new javax.swing.JButton();
+        ReserveDate = new org.jdesktop.swingx.JXDatePicker();
+        ReturnDate = new org.jdesktop.swingx.JXDatePicker();
+
+        jCheckBox1.setText("jCheckBox1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -78,6 +100,23 @@ public class bookRoom extends javax.swing.JFrame {
         });
 
         bookB.setText("Book");
+        bookB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bookBActionPerformed(evt);
+            }
+        });
+
+        ReserveDate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ReserveDateActionPerformed(evt);
+            }
+        });
+
+        ReturnDate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ReturnDateActionPerformed(evt);
+            }
+        });
 
         jDesktopPane1.setLayer(BookRoomL, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(idL, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -92,6 +131,8 @@ public class bookRoom extends javax.swing.JFrame {
         jDesktopPane1.setLayer(ContTxt, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(CloseB, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(bookB, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(ReserveDate, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(ReturnDate, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
         jDesktopPane1.setLayout(jDesktopPane1Layout);
@@ -104,26 +145,34 @@ public class bookRoom extends javax.swing.JFrame {
                             .addGroup(jDesktopPane1Layout.createSequentialGroup()
                                 .addGap(70, 70, 70)
                                 .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(ReturnDateL)
-                                    .addComponent(ReservDateL)
+                                    .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                                                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(nicL)
+                                                    .addComponent(idL)
+                                                    .addComponent(nameL))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(nameTxt, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(nicTxt, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(idTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                            .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                                                .addComponent(contNOL)
+                                                .addGap(29, 29, 29)
+                                                .addComponent(ContTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createSequentialGroup()
+                                            .addComponent(ReturnDateL)
+                                            .addGap(18, 18, 18)
+                                            .addComponent(ReturnDate, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                     .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                                        .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(nicL)
-                                            .addComponent(idL)
-                                            .addComponent(nameL))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(nameTxt, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(nicTxt, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(idTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                                        .addComponent(contNOL)
-                                        .addGap(29, 29, 29)
-                                        .addComponent(ContTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                        .addComponent(ReservDateL)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(ReserveDate, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))))
                             .addGroup(jDesktopPane1Layout.createSequentialGroup()
                                 .addContainerGap()
                                 .addComponent(BookRoomL)))
-                        .addGap(0, 109, Short.MAX_VALUE))
+                        .addGap(0, 85, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(bookB, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -153,10 +202,14 @@ public class bookRoom extends javax.swing.JFrame {
                     .addComponent(contNOL)
                     .addComponent(ContTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(ReservDateL)
-                .addGap(24, 24, 24)
-                .addComponent(ReturnDateL)
-                .addGap(16, 16, 16)
+                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ReservDateL)
+                    .addComponent(ReserveDate, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(10, 10, 10)
+                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ReturnDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ReturnDateL))
+                .addGap(39, 39, 39)
                 .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(CloseB)
                     .addComponent(bookB))
@@ -167,10 +220,7 @@ public class bookRoom extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jDesktopPane1)
-                .addContainerGap())
+            .addComponent(jDesktopPane1, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -192,6 +242,33 @@ public class bookRoom extends javax.swing.JFrame {
     private void idTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idTxtActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_idTxtActionPerformed
+
+    private void bookBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bookBActionPerformed
+        Date date1 = new Date();// using java util package date funtion
+        Date date2 = new Date();
+        
+        int id = Integer.parseInt(idTxt.getText());//get user enter values
+        String nic = nicTxt.getText();
+        String name = nameTxt.getText();
+        int cont = Integer.parseInt(ContTxt.getText());
+        date1 = ReserveDate.getDate();//get usr selected date
+        date2 = ReturnDate.getDate();
+        
+        try{
+            String sql = "INSERT INTO booking VALUES (?,?,?,?,?,?);";
+            PreparedStatement statement = connDB.conn.prepareStatement(sql);
+        }catch(Exception ex){
+            JOptionPane.showMessageDialog(null, "exception");
+        }
+    }//GEN-LAST:event_bookBActionPerformed
+
+    private void ReserveDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReserveDateActionPerformed
+       ReserveDate.setFormats("yyyy-MM-dd");
+    }//GEN-LAST:event_ReserveDateActionPerformed
+
+    private void ReturnDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReturnDateActionPerformed
+        ReturnDate.setFormats("yyyy-MM-dd");
+    }//GEN-LAST:event_ReturnDateActionPerformed
 
     /**
      * @param args the command line arguments
@@ -237,15 +314,23 @@ public class bookRoom extends javax.swing.JFrame {
     private javax.swing.JButton CloseB;
     private javax.swing.JTextField ContTxt;
     private javax.swing.JLabel ReservDateL;
+    private org.jdesktop.swingx.JXDatePicker ReserveDate;
+    private org.jdesktop.swingx.JXDatePicker ReturnDate;
     private javax.swing.JLabel ReturnDateL;
     private javax.swing.JButton bookB;
     private javax.swing.JLabel contNOL;
+    private org.jdatepicker.impl.DateComponentFormatter dateComponentFormatter1;
     private javax.swing.JLabel idL;
     private javax.swing.JTextField idTxt;
+    private javax.swing.JCheckBox jCheckBox1;
+    private javax.swing.JColorChooser jColorChooser1;
+    private org.jdatepicker.util.JDatePickerUtil jDatePickerUtil1;
+    private org.jdatepicker.util.JDatePickerUtil jDatePickerUtil2;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JLabel nameL;
     private javax.swing.JTextField nameTxt;
     private javax.swing.JLabel nicL;
     private javax.swing.JTextField nicTxt;
+    private org.jdatepicker.impl.UtilCalendarModel utilCalendarModel1;
     // End of variables declaration//GEN-END:variables
 }
