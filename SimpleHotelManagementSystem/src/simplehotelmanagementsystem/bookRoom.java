@@ -202,9 +202,9 @@ public class bookRoom extends javax.swing.JFrame {
                     .addComponent(contNOL)
                     .addComponent(ContTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ReservDateL)
-                    .addComponent(ReserveDate, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(ReserveDate, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ReservDateL))
                 .addGap(10, 10, 10)
                 .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ReturnDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -286,6 +286,7 @@ public class bookRoom extends javax.swing.JFrame {
 
     private void ReserveDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReserveDateActionPerformed
        ReserveDate.setFormats("yyyy-MM-dd");
+       ReserveDate.getDate();
        
     }//GEN-LAST:event_ReserveDateActionPerformed
 

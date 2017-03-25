@@ -33,6 +33,7 @@ public class Receptionist extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         check = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        ReturnRoomB = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -53,9 +54,17 @@ public class Receptionist extends javax.swing.JFrame {
             }
         });
 
+        ReturnRoomB.setText("Return Room");
+        ReturnRoomB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ReturnRoomBActionPerformed(evt);
+            }
+        });
+
         jDesktopPane1.setLayer(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(check, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(jButton1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(ReturnRoomB, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
         jDesktopPane1.setLayout(jDesktopPane1Layout);
@@ -64,10 +73,12 @@ public class Receptionist extends javax.swing.JFrame {
             .addGroup(jDesktopPane1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
                     .addGroup(jDesktopPane1Layout.createSequentialGroup()
                         .addGap(6, 6, 6)
-                        .addComponent(check))
-                    .addComponent(jLabel1))
+                        .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(ReturnRoomB)
+                            .addComponent(check))))
                 .addContainerGap(192, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -81,7 +92,9 @@ public class Receptionist extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(check)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 175, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(ReturnRoomB)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 132, Short.MAX_VALUE)
                 .addComponent(jButton1)
                 .addGap(16, 16, 16))
         );
@@ -117,6 +130,10 @@ public class Receptionist extends javax.swing.JFrame {
         rooms.setVisible(true);
         dispose();
     }//GEN-LAST:event_checkActionPerformed
+
+    private void ReturnRoomBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReturnRoomBActionPerformed
+        
+    }//GEN-LAST:event_ReturnRoomBActionPerformed
 
     /**
      * @param args the command line arguments
@@ -154,6 +171,7 @@ public class Receptionist extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton ReturnRoomB;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.JButton check;
