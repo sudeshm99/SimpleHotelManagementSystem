@@ -5,17 +5,22 @@
  */
 package simplehotelmanagementsystem;
 
+import java.sql.*;
+import javax.swing.JOptionPane;
+import database.connectDB;
+
 /**
  *
  * @author root
  */
 public class returnRoom extends javax.swing.JFrame {
-
+    connectDB dbconn = new connectDB();
     /**
      * Creates new form returnRoom
      */
     public returnRoom() {
         initComponents();
+        dbconn.connect();
     }
 
     /**
@@ -39,9 +44,12 @@ public class returnRoom extends javax.swing.JFrame {
         nameTxt = new javax.swing.JTextField();
         reserveDateTxt = new javax.swing.JTextField();
         noDatesTxt = new javax.swing.JTextField();
-        visaButn = new javax.swing.JButton();
         closeButn = new javax.swing.JButton();
+        checkB = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
         cashButn = new javax.swing.JButton();
+        visaButn = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -64,11 +72,46 @@ public class returnRoom extends javax.swing.JFrame {
             }
         });
 
-        visaButn.setText("VISA");
-
         closeButn.setText("Close");
 
+        checkB.setText("Check");
+        checkB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                checkBActionPerformed(evt);
+            }
+        });
+
         cashButn.setText("Cash");
+        cashButn.setEnabled(false);
+
+        visaButn.setText("VISA");
+        visaButn.setEnabled(false);
+
+        jLabel1.setText("Payment Method");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
+                .addComponent(cashButn)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(visaButn)
+                .addContainerGap())
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(visaButn)
+                    .addComponent(cashButn)
+                    .addComponent(jLabel1))
+                .addContainerGap())
+        );
 
         jDesktopPane1.setLayer(returnRoomL, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(roomNoL, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -81,54 +124,39 @@ public class returnRoom extends javax.swing.JFrame {
         jDesktopPane1.setLayer(nameTxt, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(reserveDateTxt, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(noDatesTxt, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(visaButn, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(closeButn, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(cashButn, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(checkB, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(jPanel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
         jDesktopPane1.setLayout(jDesktopPane1Layout);
         jDesktopPane1Layout.setHorizontalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                .addGap(24, 24, 24)
+                .addContainerGap()
                 .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-            .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(closeButn))
-                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                        .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(returnRoomL)
+                            .addComponent(roomNoL)
+                            .addComponent(nicNoL)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel5))
+                        .addGap(37, 37, 37)
                         .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(returnRoomL)
-                                    .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(roomNoL)
-                                        .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                                            .addGap(6, 6, 6)
-                                            .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                                                    .addGap(6, 6, 6)
-                                                    .addComponent(jLabel3))
-                                                .addComponent(nicNoL)))))
-                                .addGap(37, 37, 37)
-                                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(roomNoTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 86, Short.MAX_VALUE)
-                                    .addComponent(nicTxt)
-                                    .addComponent(nameTxt)
-                                    .addComponent(reserveDateTxt)
-                                    .addComponent(noDatesTxt)))
-                            .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                                .addGap(112, 112, 112)
-                                .addComponent(visaButn)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(cashButn)))
-                        .addGap(0, 91, Short.MAX_VALUE)))
+                            .addComponent(checkB, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(roomNoTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 86, Short.MAX_VALUE)
+                                .addComponent(nicTxt)
+                                .addComponent(nameTxt)
+                                .addComponent(reserveDateTxt)
+                                .addComponent(noDatesTxt)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(closeButn)))
                 .addContainerGap())
         );
         jDesktopPane1Layout.setVerticalGroup(
@@ -154,14 +182,18 @@ public class returnRoom extends javax.swing.JFrame {
                     .addComponent(reserveDateTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(noDatesTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
-                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cashButn)
-                    .addComponent(visaButn))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(closeButn)
+                    .addComponent(noDatesTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(checkB, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(closeButn))
+                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 26, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
@@ -178,8 +210,8 @@ public class returnRoom extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jDesktopPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jDesktopPane1)
+                .addContainerGap())
         );
 
         pack();
@@ -188,6 +220,25 @@ public class returnRoom extends javax.swing.JFrame {
     private void reserveDateTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reserveDateTxtActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_reserveDateTxtActionPerformed
+
+    private void checkBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkBActionPerformed
+       cashButn.setEnabled(true);
+       visaButn.setEnabled(true);
+       String roomID = roomNoTxt.getText();
+       String nic = nicTxt.getText();
+       if(roomID.isEmpty() && !(nic.isEmpty())){//when user enter nic this is the funtion
+          try{
+           String sql = "SELECT (room_id,person_name,person_phoneNO,reserve_date) FROM booking WHERE person_nic=?";//sql query
+           PreparedStatement statement = dbconn.conn.prepareStatement(sql);//sql statement
+           statement.setString(1, nic);
+           ResultSet result = statement.executeQuery();//execute query and get result 
+           
+          }catch(Exception ex){
+              JOptionPane.showMessageDialog(null, "exception");
+          }
+       }
+       //System.out.println(roomID.isEmpty());
+    }//GEN-LAST:event_checkBActionPerformed
 
     /**
      * @param args the command line arguments
@@ -226,11 +277,14 @@ public class returnRoom extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cashButn;
+    private javax.swing.JButton checkB;
     private javax.swing.JButton closeButn;
     private javax.swing.JDesktopPane jDesktopPane1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField nameTxt;
     private javax.swing.JLabel nicNoL;
     private javax.swing.JTextField nicTxt;

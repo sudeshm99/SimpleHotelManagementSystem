@@ -132,6 +132,9 @@ public class Receptionist extends javax.swing.JFrame {
     }//GEN-LAST:event_checkActionPerformed
 
     private void ReturnRoomBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReturnRoomBActionPerformed
+        returnRoom room = new returnRoom();
+        room.setVisible(true);
+        dispose();
         
     }//GEN-LAST:event_ReturnRoomBActionPerformed
 
