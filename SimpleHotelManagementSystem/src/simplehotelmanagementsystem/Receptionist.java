@@ -135,7 +135,6 @@ public class Receptionist extends javax.swing.JFrame {
         returnRoom room = new returnRoom();
         room.setVisible(true);
         dispose();
-        
     }//GEN-LAST:event_ReturnRoomBActionPerformed
 
     /**

@@ -48,7 +48,7 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="1" attributes="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
                           <Group type="103" groupAlignment="1" attributes="0">
                               <Component id="returnRoomL" min="-2" max="-2" attributes="0"/>
@@ -59,17 +59,15 @@
                               <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="checkB" min="-2" pref="81" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="roomNoTxt" pref="86" max="32767" attributes="0"/>
-                                  <Component id="nicTxt" max="32767" attributes="0"/>
-                                  <Component id="nameTxt" max="32767" attributes="0"/>
-                                  <Component id="reserveDateTxt" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="noDatesTxt" alignment="0" max="32767" attributes="0"/>
-                              </Group>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="checkB" alignment="0" min="-2" pref="81" max="-2" attributes="0"/>
+                              <Component id="reserveDateTxt" alignment="0" pref="97" max="32767" attributes="0"/>
+                              <Component id="noDatesTxt" alignment="0" max="32767" attributes="0"/>
+                              <Component id="roomNoTxt" max="32767" attributes="0"/>
+                              <Component id="nicTxt" alignment="0" max="32767" attributes="0"/>
+                              <Component id="nameTxt" alignment="0" max="32767" attributes="0"/>
                           </Group>
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="137" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
                           <Component id="jPanel1" max="32767" attributes="0"/>
@@ -83,7 +81,7 @@
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
+              <Group type="102" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="returnRoomL" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
@@ -113,15 +111,15 @@
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="checkB" min="-2" pref="28" max="-2" attributes="0"/>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="44" max="32767" attributes="0"/>
                           <Component id="closeButn" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="0" pref="26" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
@@ -194,13 +192,9 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
-                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="21" max="32767" attributes="0"/>
-                      <Component id="cashButn" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="visaButn" min="-2" max="-2" attributes="0"/>
+                      <Component id="jDesktopPane2" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -208,35 +202,64 @@
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="visaButn" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="cashButn" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jDesktopPane2" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JButton" name="cashButn">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Cash"/>
-                <Property name="enabled" type="boolean" value="false"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JButton" name="visaButn">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="VISA"/>
-                <Property name="enabled" type="boolean" value="false"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="jLabel1">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Payment Method"/>
-              </Properties>
-            </Component>
+            <Container class="javax.swing.JDesktopPane" name="jDesktopPane2">
+
+              <Layout>
+                <DimensionLayout dim="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jLabel1" min="-2" pref="131" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="visaButn" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="cashButn" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+                <DimensionLayout dim="1">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="visaButn" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="cashButn" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+              </Layout>
+              <SubComponents>
+                <Component class="javax.swing.JLabel" name="jLabel1">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Payment Method"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JButton" name="visaButn">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="VISA"/>
+                    <Property name="enabled" type="boolean" value="false"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JButton" name="cashButn">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Cash"/>
+                    <Property name="enabled" type="boolean" value="false"/>
+                  </Properties>
+                </Component>
+              </SubComponents>
+            </Container>
           </SubComponents>
         </Container>
       </SubComponents>
