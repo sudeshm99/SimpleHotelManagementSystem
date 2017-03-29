@@ -247,6 +247,7 @@ public class returnRoom extends javax.swing.JFrame {
        cashButn.setEnabled(true);
        visaButn.setEnabled(true);
        String roomID = roomNoTxt.getText();
+       int room_id = Integer.parseInt(roomID);
        String nic = nicTxt.getText();
        String name = "";
        int phoneNo = 0;
@@ -256,11 +257,11 @@ public class returnRoom extends javax.swing.JFrame {
        java.sql.Date reserveDateSql = new java.sql.Date(0,0,0);
        if(roomID.isEmpty() && !(nic.isEmpty())){//when user enter nic this is the funtion
           try{
-           String sql = "SELECT (room_id,person_name,person_phoneNO,reserve_date) FROM booking WHERE person_nic=?";//sql query
+           String sql = "SELECT room_id,person_name,person_phoneNO,reserv_date FROM booking WHERE person_nic=?;";//sql query
            PreparedStatement statement = dbconn.conn.prepareStatement(sql);//sql statement
            statement.setString(1, nic);
            ResultSet result = statement.executeQuery();//execute query and get result 
-            roomID = result.getString("room_id");
+            room_id = result.getInt("room_id");
             name = result.getString("person_name");
             phoneNo = result.getInt("person_phoneNO");
             reserveDateSql =result.getDate("reserve_date");
@@ -269,9 +270,9 @@ public class returnRoom extends javax.swing.JFrame {
           }
        }else if((nic.isEmpty() && !(roomID.isEmpty())) || ((!(nic.isEmpty())) && (!(roomID.isEmpty()))) ){// when user enter room id or room id and user nic this is the funtion
            try{
-                String sql = "SELECT (person_nic,person_name,person_phoneNO,reserve_date) FROM booking WHERE room_id=?";//sql query
+                String sql = "SELECT person_nic,person_name,person_phoneNO,reserv_date FROM booking WHERE room_id=?;";//sql query
                 PreparedStatement statement = dbconn.conn.prepareStatement(sql);//sql statement
-                statement.setString(1, roomID);// set variable
+                statement.setInt(1, room_id);// set variable
                 ResultSet result = statement.executeQuery();//execute query
                 nic = result.getString("person_nic");
                 name = result.getString("person_name");
@@ -279,7 +280,7 @@ public class returnRoom extends javax.swing.JFrame {
                 reserveDateSql =result.getDate("reserve_date");
                 
            }catch(Exception ex){
-               //JOptionPane.showMessageDialog(null, "exception 2");
+               JOptionPane.showMessageDialog(null, "exception 2");
            }
            
            
