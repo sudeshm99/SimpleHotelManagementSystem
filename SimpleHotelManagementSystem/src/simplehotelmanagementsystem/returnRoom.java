@@ -260,16 +260,34 @@ public class returnRoom extends javax.swing.JFrame {
        // System.out.println(room_id);
        if(nic.isEmpty()){//check is room id empty
        String roomID = roomNoTxt.getText();//is room id empty then get nic
-       System.out.println(roomID);
+       //System.out.println(roomID);
         if(roomID.isEmpty()){// if room id and nic empty show message
             JOptionPane.showMessageDialog(null, "Enter Room Num or NIC");
         }else{
+            room_id = Integer.parseInt(roomID);
             System.out.println("room id is not empty but nic is empty");
+            try{
+                String sql = "SELECT person_nic,person_name,person_phoneNO,reserv_date FROM booking WHERE room_id=?;";//sql query
+                PreparedStatement statement = dbconn.conn.prepareStatement(sql);//sql statement
+                statement.setInt(1, room_id);// set variable
+                ResultSet result = statement.executeQuery();//execute query
+                while(result.next()){
+                nic = result.getString("person_nic");
+                name = result.getString("person_name");
+                phoneNo = result.getInt("person_phoneNO");
+                date = (result.getDate("reserv_date")).toString();
+                }
+               
+                
+           }catch(Exception ex){
+               JOptionPane.showMessageDialog(null, "exception 2");
+           }
+           
         }
        }else{
            System.out.println("nic is not empty");
           try{
-            String sql = "SELECT room_id,person_name,person_phoneNO,reserve_date FROM booking WHERE person_nic=?;";//sql query
+            String sql = "SELECT room_id,person_name,person_phoneNO,reserv_date FROM booking WHERE person_nic=?;";//sql query
             PreparedStatement statement = dbconn.conn.prepareStatement(sql);//sql statement
             statement.setString(1, nic);
             ResultSet result = statement.executeQuery();//execute query and get result 
@@ -277,14 +295,10 @@ public class returnRoom extends javax.swing.JFrame {
             room_id = result.getInt("room_id");
             name = result.getString("person_name");
             phoneNo = result.getInt("person_phoneNO");
-            date2 = result.getDate("reserve_date");
+            date = (result.getDate("reserv_date")).toString();
           // java.util.Date JUdate = new java.util.Date(result.getDate("reserve_date"));
            }
-            System.out.println("query ok");
-            System.out.println(room_id);
-            System.out.println(name); 
-            System.out.println(phoneNo);
-            System.out.println(date2.toString());
+            
           }catch(Exception ex){
               JOptionPane.showMessageDialog(null, "exception 1");
           }
