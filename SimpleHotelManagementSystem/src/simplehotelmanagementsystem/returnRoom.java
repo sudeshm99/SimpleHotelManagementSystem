@@ -246,14 +246,21 @@ public class returnRoom extends javax.swing.JFrame {
     private void checkBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkBActionPerformed
        cashButn.setEnabled(true);//when user click check button payment buttons will display
        visaButn.setEnabled(true);
-       
+       String name = null;
+       int phoneNo = 0;
+       int noOfDates = 0;
+       int room_id = 0;
+       String date = null;
+       Date date2 = new Date() ;
+       //Date reserveDate = new Date();
+       //java.sql.Date reserveDateSql = new java.sql.Date(0,0,0);
        String nic = nicTxt.getText();//get nic
        // System.out.println(roomID);
        //  int room_id = Integer.parseInt(roomID);
        // System.out.println(room_id);
        if(nic.isEmpty()){//check is room id empty
        String roomID = roomNoTxt.getText();//is room id empty then get nic
-        System.out.println(roomID);
+       System.out.println(roomID);
         if(roomID.isEmpty()){// if room id and nic empty show message
             JOptionPane.showMessageDialog(null, "Enter Room Num or NIC");
         }else{
@@ -261,10 +268,32 @@ public class returnRoom extends javax.swing.JFrame {
         }
        }else{
            System.out.println("nic is not empty");
+          try{
+            String sql = "SELECT room_id,person_name,person_phoneNO,reserve_date FROM booking WHERE person_nic=?;";//sql query
+            PreparedStatement statement = dbconn.conn.prepareStatement(sql);//sql statement
+            statement.setString(1, nic);
+            ResultSet result = statement.executeQuery();//execute query and get result 
+           while(result.next()){
+            room_id = result.getInt("room_id");
+            name = result.getString("person_name");
+            phoneNo = result.getInt("person_phoneNO");
+            date2 = result.getDate("reserve_date");
+          // java.util.Date JUdate = new java.util.Date(result.getDate("reserve_date"));
+           }
+            System.out.println("query ok");
+            System.out.println(room_id);
+            System.out.println(name); 
+            System.out.println(phoneNo);
+            System.out.println(date2.toString());
+          }catch(Exception ex){
+              JOptionPane.showMessageDialog(null, "exception 1");
+          }
+//          System.out.println(room_id);
+//          System.out.println(name); 
+//          System.out.println(phoneNo);
+//          System.out.println(reserveDateSql);
        }
-//       String name = "";
-//       int phoneNo = 0;
-//       int noOfDates = 0;
+       
 //       //Date reserveDate = new Date();// util date
 //       int reserveDate = 0;
 //       java.sql.Date reserveDateSql = new java.sql.Date(0,0,0);
