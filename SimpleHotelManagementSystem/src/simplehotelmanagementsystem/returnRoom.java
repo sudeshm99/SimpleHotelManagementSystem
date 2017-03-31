@@ -244,60 +244,72 @@ public class returnRoom extends javax.swing.JFrame {
     }//GEN-LAST:event_reserveDateTxtActionPerformed
 
     private void checkBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkBActionPerformed
-       cashButn.setEnabled(true);
+       cashButn.setEnabled(true);//when user click check button payment buttons will display
        visaButn.setEnabled(true);
-       String roomID = roomNoTxt.getText();
-       int room_id = Integer.parseInt(roomID);
-       String nic = nicTxt.getText();
-       String name = "";
-       int phoneNo = 0;
-       int noOfDates = 0;
-       //Date reserveDate = new Date();// util date
-       int reserveDate = 0;
-       java.sql.Date reserveDateSql = new java.sql.Date(0,0,0);
-       if(roomID.isEmpty() && !(nic.isEmpty())){//when user enter nic this is the funtion
-          try{
-           String sql = "SELECT room_id,person_name,person_phoneNO,reserv_date FROM booking WHERE person_nic=?;";//sql query
-           PreparedStatement statement = dbconn.conn.prepareStatement(sql);//sql statement
-           statement.setString(1, nic);
-           ResultSet result = statement.executeQuery();//execute query and get result 
-            room_id = result.getInt("room_id");
-            name = result.getString("person_name");
-            phoneNo = result.getInt("person_phoneNO");
-            reserveDateSql =result.getDate("reserve_date");
-          }catch(Exception ex){
-              //JOptionPane.showMessageDialog(null, "exception 1");
-          }
-       }else if((nic.isEmpty() && !(roomID.isEmpty())) || ((!(nic.isEmpty())) && (!(roomID.isEmpty()))) ){// when user enter room id or room id and user nic this is the funtion
-           try{
-                String sql = "SELECT person_nic,person_name,person_phoneNO,reserv_date FROM booking WHERE room_id=?;";//sql query
-                PreparedStatement statement = dbconn.conn.prepareStatement(sql);//sql statement
-                statement.setInt(1, room_id);// set variable
-                ResultSet result = statement.executeQuery();//execute query
-                nic = result.getString("person_nic");
-                name = result.getString("person_name");
-                phoneNo = result.getInt("person_phoneNO");
-                reserveDateSql =result.getDate("reserve_date");
-                
-           }catch(Exception ex){
-               JOptionPane.showMessageDialog(null, "exception 2");
-           }
-           
-           
+       String roomID = roomNoTxt.getText();//get room id
+      // System.out.println(roomID);
+     //  int room_id = Integer.parseInt(roomID);
+       // System.out.println(room_id);
+       if(roomID.isEmpty()){//check is room id empty
+       String nic = nicTxt.getText();//is room id empty then get nic
+        System.out.println(nic);
+        if(nic.isEmpty()){// if room id and nic empty show message
+            JOptionPane.showMessageDialog(null, "Enter Room Num or NIC");
+        }else{
+            System.out.println("room id is empty but nic is not empty");
+        }
        }else{
-           cashButn.setEnabled(false);
-           visaButn.setEnabled(false);
-           JOptionPane.showMessageDialog(null, "Incorect Data Entered");
+           System.out.println("room id is not empty");
        }
-       if(!(name.isEmpty())){//after sql query is executed is there data then this funtion is executing
-           reserveDate = reserveDateSql.getDate();
-           roomNoTxt.setText(roomID);
-           nicTxt.setText(nic);
-           nameTxt.setText(name);
-           reserveDateTxt.setText(Integer.toString(reserveDate));
-           
-       }
-       //System.out.println(roomID.isEmpty());
+//       String name = "";
+//       int phoneNo = 0;
+//       int noOfDates = 0;
+//       //Date reserveDate = new Date();// util date
+//       int reserveDate = 0;
+//       java.sql.Date reserveDateSql = new java.sql.Date(0,0,0);
+//       if(roomID.isEmpty() && !(nic.isEmpty())){//when user enter nic this is the funtion
+//          try{
+//           String sql = "SELECT room_id,person_name,person_phoneNO,reserv_date FROM booking WHERE person_nic=?;";//sql query
+//           PreparedStatement statement = dbconn.conn.prepareStatement(sql);//sql statement
+//           statement.setString(1, nic);
+//           ResultSet result = statement.executeQuery();//execute query and get result 
+//            room_id = result.getInt("room_id");
+//            name = result.getString("person_name");
+//            phoneNo = result.getInt("person_phoneNO");
+//            reserveDateSql =result.getDate("reserve_date");
+//          }catch(Exception ex){
+//              //JOptionPane.showMessageDialog(null, "exception 1");
+//          }
+//       }else if((nic.isEmpty() && !(roomID.isEmpty())) || ((!(nic.isEmpty())) && (!(roomID.isEmpty()))) ){// when user enter room id or room id and user nic this is the funtion
+//           try{
+//                String sql = "SELECT person_nic,person_name,person_phoneNO,reserv_date FROM booking WHERE room_id=?;";//sql query
+//                PreparedStatement statement = dbconn.conn.prepareStatement(sql);//sql statement
+//                statement.setInt(1, room_id);// set variable
+//                ResultSet result = statement.executeQuery();//execute query
+//                nic = result.getString("person_nic");
+//                name = result.getString("person_name");
+//                phoneNo = result.getInt("person_phoneNO");
+//                reserveDateSql =result.getDate("reserve_date");
+//                
+//           }catch(Exception ex){
+//               JOptionPane.showMessageDialog(null, "exception 2");
+//           }
+//           
+//           
+//       }else{
+//           cashButn.setEnabled(false);
+//           visaButn.setEnabled(false);
+//           JOptionPane.showMessageDialog(null, "Incorect Data Entered");
+//       }
+//       if(!(name.isEmpty())){//after sql query is executed is there data then this funtion is executing
+//           reserveDate = reserveDateSql.getDate();
+//           roomNoTxt.setText(roomID);
+//           nicTxt.setText(nic);
+//           nameTxt.setText(name);
+//           reserveDateTxt.setText(Integer.toString(reserveDate));
+//           
+//       }
+//       //System.out.println(roomID.isEmpty());
     }//GEN-LAST:event_checkBActionPerformed
 
     /**
