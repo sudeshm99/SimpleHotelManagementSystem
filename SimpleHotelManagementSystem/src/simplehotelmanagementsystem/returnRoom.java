@@ -52,6 +52,7 @@ public class returnRoom extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         visaButn = new javax.swing.JButton();
         cashButn = new javax.swing.JButton();
+        clearB = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -106,7 +107,7 @@ public class returnRoom extends javax.swing.JFrame {
                 .addComponent(visaButn)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(cashButn)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 11, Short.MAX_VALUE))
         );
         jDesktopPane2Layout.setVerticalGroup(
             jDesktopPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -136,6 +137,13 @@ public class returnRoom extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        clearB.setText("Clear");
+        clearB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clearBActionPerformed(evt);
+            }
+        });
+
         jDesktopPane1.setLayer(returnRoomL, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(roomNoL, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(nicNoL, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -150,6 +158,7 @@ public class returnRoom extends javax.swing.JFrame {
         jDesktopPane1.setLayer(closeButn, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(checkB, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(jPanel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(clearB, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
         jDesktopPane1.setLayout(jDesktopPane1Layout);
@@ -174,7 +183,9 @@ public class returnRoom extends javax.swing.JFrame {
                             .addComponent(roomNoTxt)
                             .addComponent(nicTxt)
                             .addComponent(nameTxt))
-                        .addGap(0, 137, Short.MAX_VALUE))
+                        .addGap(12, 12, 12)
+                        .addComponent(clearB)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createSequentialGroup()
                         .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -207,11 +218,13 @@ public class returnRoom extends javax.swing.JFrame {
                     .addComponent(noDatesTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
-                .addComponent(checkB, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(checkB, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(clearB))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                        .addGap(0, 44, Short.MAX_VALUE)
+                        .addGap(0, 41, Short.MAX_VALUE)
                         .addComponent(closeButn))
                     .addGroup(jDesktopPane1Layout.createSequentialGroup()
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -244,14 +257,14 @@ public class returnRoom extends javax.swing.JFrame {
     }//GEN-LAST:event_reserveDateTxtActionPerformed
 
     private void checkBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkBActionPerformed
-       cashButn.setEnabled(true);//when user click check button payment buttons will display
-       visaButn.setEnabled(true);
        String name = null;
        int phoneNo = 0;
        int noOfDates = 0;
        int room_id = 0;
        String date = null;
        Date date2 = new Date() ;
+       ResultSet result = null;
+       int queryValue = 0;
        //Date reserveDate = new Date();
        //java.sql.Date reserveDateSql = new java.sql.Date(0,0,0);
        String nic = nicTxt.getText();//get nic
@@ -263,98 +276,83 @@ public class returnRoom extends javax.swing.JFrame {
        //System.out.println(roomID);
         if(roomID.isEmpty()){// if room id and nic empty show message
             JOptionPane.showMessageDialog(null, "Enter Room Num or NIC");
-        }else{
-            room_id = Integer.parseInt(roomID);
-            System.out.println("room id is not empty but nic is empty");
+        }else{// room id is not empty and customer nic is empty then run this funtion
+            room_id = Integer.parseInt(roomID);// user enter string room id convert to int room id
             try{
                 String sql = "SELECT person_nic,person_name,person_phoneNO,reserv_date FROM booking WHERE room_id=?;";//sql query
                 PreparedStatement statement = dbconn.conn.prepareStatement(sql);//sql statement
                 statement.setInt(1, room_id);// set variable
-                ResultSet result = statement.executeQuery();//execute query
-                while(result.next()){
-                nic = result.getString("person_nic");
-                name = result.getString("person_name");
-                phoneNo = result.getInt("person_phoneNO");
-                date = (result.getDate("reserv_date")).toString();
+                result = statement.executeQuery();//execute query
+                //queryValue = statement.executeUpdate();
+                if(!result.next()){
+                    JOptionPane.showMessageDialog(null, "wrong room id or coustomer nic");
+                }else{
+                     while(result.next()){
+                        nic = result.getString("person_nic");
+                        name = result.getString("person_name");
+                        phoneNo = result.getInt("person_phoneNO");
+                        date = (result.getDate("reserv_date")).toString();
+                    }
+                     cashButn.setEnabled(true);//when user click check button payment buttons will display
+                    visaButn.setEnabled(true);
+                    roomNoTxt.setText(Integer.toString(room_id));
+                    nicTxt.setText(nic);
+                    nameTxt.setText(name);
+                    reserveDateTxt.setText(date);
+      
+                
                 }
                
-                
-           }catch(Exception ex){
+               }catch(Exception ex){
                JOptionPane.showMessageDialog(null, "exception 2");
            }
            
         }
-       }else{
-           System.out.println("nic is not empty");
-          try{
-            String sql = "SELECT room_id,person_name,person_phoneNO,reserv_date FROM booking WHERE person_nic=?;";//sql query
-            PreparedStatement statement = dbconn.conn.prepareStatement(sql);//sql statement
-            statement.setString(1, nic);
-            ResultSet result = statement.executeQuery();//execute query and get result 
-           while(result.next()){
-            room_id = result.getInt("room_id");
-            name = result.getString("person_name");
-            phoneNo = result.getInt("person_phoneNO");
-            date = (result.getDate("reserv_date")).toString();
-          // java.util.Date JUdate = new java.util.Date(result.getDate("reserve_date"));
-           }
+       }else{// person nic is not empty call this funtion
+                try{
+                  String sql = "SELECT room_id,person_name,person_phoneNO,reserv_date FROM booking WHERE person_nic=?;";//sql query
+                  PreparedStatement statement = dbconn.conn.prepareStatement(sql);//sql statement
+                  statement.setString(1, nic);
+                   result = statement.executeQuery();//execute query and get result
+                    //queryValue = statement.executeUpdate();
+                    if(!result.next()){
+                    JOptionPane.showMessageDialog(null, "wrong room id or coustomer nic");
+                }else{
+                    while(result.next()){
+                     room_id = result.getInt("room_id");
+                     name = result.getString("person_name");
+                     phoneNo = result.getInt("person_phoneNO");
+                     date = (result.getDate("reserv_date")).toString();// sql date data type convert to string
+                   // java.util.Date JUdate = new java.util.Date(result.getDate("reserve_date"));
+                        }
+                    cashButn.setEnabled(true);//when user click check button payment buttons will display
+                    visaButn.setEnabled(true);
+                    roomNoTxt.setText(Integer.toString(room_id));
+                    nicTxt.setText(nic);
+                    nameTxt.setText(name);
+                    reserveDateTxt.setText(date);
+      
+                    }
+
+                }catch(Exception ex){
+                    JOptionPane.showMessageDialog(null, "exception 1");
+                }
+
+            }
+      
             
-          }catch(Exception ex){
-              JOptionPane.showMessageDialog(null, "exception 1");
-          }
-//          System.out.println(room_id);
-//          System.out.println(name); 
-//          System.out.println(phoneNo);
-//          System.out.println(reserveDateSql);
-       }
        
-//       //Date reserveDate = new Date();// util date
-//       int reserveDate = 0;
-//       java.sql.Date reserveDateSql = new java.sql.Date(0,0,0);
-//       if(roomID.isEmpty() && !(nic.isEmpty())){//when user enter nic this is the funtion
-//          try{
-//           String sql = "SELECT room_id,person_name,person_phoneNO,reserv_date FROM booking WHERE person_nic=?;";//sql query
-//           PreparedStatement statement = dbconn.conn.prepareStatement(sql);//sql statement
-//           statement.setString(1, nic);
-//           ResultSet result = statement.executeQuery();//execute query and get result 
-//            room_id = result.getInt("room_id");
-//            name = result.getString("person_name");
-//            phoneNo = result.getInt("person_phoneNO");
-//            reserveDateSql =result.getDate("reserve_date");
-//          }catch(Exception ex){
-//              //JOptionPane.showMessageDialog(null, "exception 1");
-//          }
-//       }else if((nic.isEmpty() && !(roomID.isEmpty())) || ((!(nic.isEmpty())) && (!(roomID.isEmpty()))) ){// when user enter room id or room id and user nic this is the funtion
-//           try{
-//                String sql = "SELECT person_nic,person_name,person_phoneNO,reserv_date FROM booking WHERE room_id=?;";//sql query
-//                PreparedStatement statement = dbconn.conn.prepareStatement(sql);//sql statement
-//                statement.setInt(1, room_id);// set variable
-//                ResultSet result = statement.executeQuery();//execute query
-//                nic = result.getString("person_nic");
-//                name = result.getString("person_name");
-//                phoneNo = result.getInt("person_phoneNO");
-//                reserveDateSql =result.getDate("reserve_date");
-//                
-//           }catch(Exception ex){
-//               JOptionPane.showMessageDialog(null, "exception 2");
-//           }
-//           
-//           
-//       }else{
-//           cashButn.setEnabled(false);
-//           visaButn.setEnabled(false);
-//           JOptionPane.showMessageDialog(null, "Incorect Data Entered");
-//       }
-//       if(!(name.isEmpty())){//after sql query is executed is there data then this funtion is executing
-//           reserveDate = reserveDateSql.getDate();
-//           roomNoTxt.setText(roomID);
-//           nicTxt.setText(nic);
-//           nameTxt.setText(name);
-//           reserveDateTxt.setText(Integer.toString(reserveDate));
-//           
-//       }
-//       //System.out.println(roomID.isEmpty());
     }//GEN-LAST:event_checkBActionPerformed
+
+    private void clearBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearBActionPerformed
+        // TODO add your handling code here:
+        roomNoTxt.setText("");
+       nicTxt.setText("");
+       nameTxt.setText("");
+       reserveDateTxt.setText("");
+       cashButn.setEnabled(false);//when user click check button payment buttons will display
+       visaButn.setEnabled(false);
+    }//GEN-LAST:event_clearBActionPerformed
 
     /**
      * @param args the command line arguments
@@ -394,6 +392,7 @@ public class returnRoom extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cashButn;
     private javax.swing.JButton checkB;
+    private javax.swing.JButton clearB;
     private javax.swing.JButton closeButn;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JDesktopPane jDesktopPane2;
