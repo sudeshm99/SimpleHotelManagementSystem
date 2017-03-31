@@ -246,20 +246,21 @@ public class returnRoom extends javax.swing.JFrame {
     private void checkBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkBActionPerformed
        cashButn.setEnabled(true);//when user click check button payment buttons will display
        visaButn.setEnabled(true);
-       String roomID = roomNoTxt.getText();//get room id
-      // System.out.println(roomID);
-     //  int room_id = Integer.parseInt(roomID);
+       
+       String nic = nicTxt.getText();//get nic
+       // System.out.println(roomID);
+       //  int room_id = Integer.parseInt(roomID);
        // System.out.println(room_id);
-       if(roomID.isEmpty()){//check is room id empty
-       String nic = nicTxt.getText();//is room id empty then get nic
-        System.out.println(nic);
-        if(nic.isEmpty()){// if room id and nic empty show message
+       if(nic.isEmpty()){//check is room id empty
+       String roomID = roomNoTxt.getText();//is room id empty then get nic
+        System.out.println(roomID);
+        if(roomID.isEmpty()){// if room id and nic empty show message
             JOptionPane.showMessageDialog(null, "Enter Room Num or NIC");
         }else{
-            System.out.println("room id is empty but nic is not empty");
+            System.out.println("room id is not empty but nic is empty");
         }
        }else{
-           System.out.println("room id is not empty");
+           System.out.println("nic is not empty");
        }
 //       String name = "";
 //       int phoneNo = 0;
