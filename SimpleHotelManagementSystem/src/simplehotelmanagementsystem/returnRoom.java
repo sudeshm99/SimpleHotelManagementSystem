@@ -8,6 +8,8 @@ package simplehotelmanagementsystem;
 import java.sql.*;
 import javax.swing.JOptionPane;
 import database.connectDB;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -16,6 +18,7 @@ import java.util.Date;
  */
 public class returnRoom extends javax.swing.JFrame {
     connectDB dbconn = new connectDB();
+    noOfDates dates = new noOfDates();
     /**
      * Creates new form returnRoom
      */
@@ -91,6 +94,11 @@ public class returnRoom extends javax.swing.JFrame {
 
         cashButn.setText("Cash");
         cashButn.setEnabled(false);
+        cashButn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cashButnActionPerformed(evt);
+            }
+        });
 
         jDesktopPane2.setLayer(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane2.setLayer(visaButn, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -263,6 +271,11 @@ public class returnRoom extends javax.swing.JFrame {
        int room_id = 0;
        String date = null;
        Date date2 = new Date() ;
+       Date newdate = new Date();
+       DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+       dateFormat.format(newdate);
+       newdate.getDate();
+       System.out.println(newdate);
        ResultSet result = null;
        int queryValue = 0;
        //Date reserveDate = new Date();
@@ -296,7 +309,8 @@ public class returnRoom extends javax.swing.JFrame {
                         nic = result.getString("person_nic");
                         name = result.getString("person_name");
                         phoneNo = result.getInt("person_phoneNO");
-                        date = (result.getDate("reserv_date")).toString();
+                        date2 = (result.getDate("reserv_date"));
+                        date = date2.toString();
                     }
                     if(!nic.isEmpty()){
                          cashButn.setEnabled(true);//when user click check button payment buttons will display
@@ -305,6 +319,9 @@ public class returnRoom extends javax.swing.JFrame {
                          nicTxt.setText(nic);
                          nameTxt.setText(name);
                          reserveDateTxt.setText(date);
+                         dates.getNoOfDates(date2,newdate);
+                         
+                         
                         
                     }else{
                         System.out.println("Room is not in the booking list");
@@ -340,7 +357,8 @@ public class returnRoom extends javax.swing.JFrame {
                      room_id = result.getInt("room_id");
                      name = result.getString("person_name");
                      phoneNo = result.getInt("person_phoneNO");
-                     date = (result.getDate("reserv_date")).toString();// sql date data type convert to string
+                     date2 = (result.getDate("reserv_date"));// sql date data type convert to string
+                     date = date2.toString();
                    // java.util.Date JUdate = new java.util.Date(result.getDate("reserve_date"));
                         }
                    if(room_id > 0){
@@ -375,6 +393,12 @@ public class returnRoom extends javax.swing.JFrame {
        cashButn.setEnabled(false);//when user click check button payment buttons will display
        visaButn.setEnabled(false);
     }//GEN-LAST:event_clearBActionPerformed
+
+    private void cashButnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cashButnActionPerformed
+        Payment payment = new Payment();
+        payment.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_cashButnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -435,11 +459,11 @@ public class returnRoom extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 }
 
-// class resultFun {
-//     
-//     resultFun1(){
-//        
-//     }
-//}
+ class noOfDates {
+     
+    void getNoOfDates(Date date1, Date date2){
+        System.out.println("dates");
+     }
+}
 
 
