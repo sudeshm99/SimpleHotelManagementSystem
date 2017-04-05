@@ -273,26 +273,31 @@ public class returnRoom extends javax.swing.JFrame {
        // System.out.println(room_id);
        if(nic.isEmpty()){//check is room id empty
        String roomID = roomNoTxt.getText();//is room id empty then get nic
-       //System.out.println(roomID);
+     
         if(roomID.isEmpty()){// if room id and nic empty show message
             JOptionPane.showMessageDialog(null, "Enter Room Num or NIC");
         }else{// room id is not empty and customer nic is empty then run this funtion
             room_id = Integer.parseInt(roomID);// user enter string room id convert to int room id
+            
             try{
                 String sql = "SELECT person_nic,person_name,person_phoneNO,reserv_date FROM booking WHERE room_id=?;";//sql query
+                
                 PreparedStatement statement = dbconn.conn.prepareStatement(sql);//sql statement
                 statement.setInt(1, room_id);// set variable
+                
                 result = statement.executeQuery();//execute query
                 //queryValue = statement.executeUpdate();
-                if(!result.next()){
-                    JOptionPane.showMessageDialog(null, "wrong room id or coustomer nic");
-                }else{
+//                if(!result){
+//                    JOptionPane.showMessageDialog(null, "wrong room id or coustomer nic");
+//                }else{
+                   // boolean res = result.getBoolean(sql);
+                   // System.out.println(res);
                      while(result.next()){
                         nic = result.getString("person_nic");
                         name = result.getString("person_name");
                         phoneNo = result.getInt("person_phoneNO");
                         date = (result.getDate("reserv_date")).toString();
-                    }
+                    //}
                      cashButn.setEnabled(true);//when user click check button payment buttons will display
                     visaButn.setEnabled(true);
                     roomNoTxt.setText(Integer.toString(room_id));
@@ -346,7 +351,7 @@ public class returnRoom extends javax.swing.JFrame {
 
     private void clearBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearBActionPerformed
         // TODO add your handling code here:
-        roomNoTxt.setText("");
+        roomNoTxt.setText("");//clear button
        nicTxt.setText("");
        nameTxt.setText("");
        reserveDateTxt.setText("");
@@ -412,3 +417,12 @@ public class returnRoom extends javax.swing.JFrame {
     private javax.swing.JButton visaButn;
     // End of variables declaration//GEN-END:variables
 }
+
+ class resultFun {
+     
+     resultFun1(){
+        
+     }
+}
+
+
