@@ -297,16 +297,21 @@ public class returnRoom extends javax.swing.JFrame {
                         name = result.getString("person_name");
                         phoneNo = result.getInt("person_phoneNO");
                         date = (result.getDate("reserv_date")).toString();
-                    //}
-                     cashButn.setEnabled(true);//when user click check button payment buttons will display
-                    visaButn.setEnabled(true);
-                    roomNoTxt.setText(Integer.toString(room_id));
-                    nicTxt.setText(nic);
-                    nameTxt.setText(name);
-                    reserveDateTxt.setText(date);
-      
+                    }
+                    if(!nic.isEmpty()){
+                         cashButn.setEnabled(true);//when user click check button payment buttons will display
+                         visaButn.setEnabled(true);
+                         roomNoTxt.setText(Integer.toString(room_id));
+                         nicTxt.setText(nic);
+                         nameTxt.setText(name);
+                         reserveDateTxt.setText(date);
+                        
+                    }else{
+                        System.out.println("Room is not in the booking list");
+                        JOptionPane.showMessageDialog(null, "Room is not in the booking list");
+                    }
                 
-                }
+               // }
                
                }catch(Exception ex){
                JOptionPane.showMessageDialog(null, "exception 2");
@@ -315,14 +320,22 @@ public class returnRoom extends javax.swing.JFrame {
         }
        }else{// person nic is not empty call this funtion
                 try{
+                   
                   String sql = "SELECT room_id,person_name,person_phoneNO,reserv_date FROM booking WHERE person_nic=?;";//sql query
                   PreparedStatement statement = dbconn.conn.prepareStatement(sql);//sql statement
                   statement.setString(1, nic);
+                  
                    result = statement.executeQuery();//execute query and get result
                     //queryValue = statement.executeUpdate();
-                    if(!result.next()){
-                    JOptionPane.showMessageDialog(null, "wrong room id or coustomer nic");
-                }else{
+                    
+                    //System.out.println(result);
+//                    if(result.next()){
+//                    JOptionPane.showMessageDialog(null, "wrong room id or coustomer nic");
+  //             }else{
+//   if(result.getInt("room_id") > 0){
+//           JOptionPane.showMessageDialog(null, "Enter valede nic or room id");
+//       }  
+  
                     while(result.next()){
                      room_id = result.getInt("room_id");
                      name = result.getString("person_name");
@@ -330,21 +343,25 @@ public class returnRoom extends javax.swing.JFrame {
                      date = (result.getDate("reserv_date")).toString();// sql date data type convert to string
                    // java.util.Date JUdate = new java.util.Date(result.getDate("reserve_date"));
                         }
+                   if(room_id > 0){
                     cashButn.setEnabled(true);//when user click check button payment buttons will display
                     visaButn.setEnabled(true);
+                   
                     roomNoTxt.setText(Integer.toString(room_id));
                     nicTxt.setText(nic);
                     nameTxt.setText(name);
                     reserveDateTxt.setText(date);
       
-                    }
+                    }else{
+                       JOptionPane.showMessageDialog(null, "Enter valede nic");
+                   }
 
                 }catch(Exception ex){
                     JOptionPane.showMessageDialog(null, "exception 1");
                 }
 
             }
-      
+          
             
        
     }//GEN-LAST:event_checkBActionPerformed
@@ -418,11 +435,11 @@ public class returnRoom extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 }
 
- class resultFun {
-     
-     resultFun1(){
-        
-     }
-}
+// class resultFun {
+//     
+//     resultFun1(){
+//        
+//     }
+//}
 
 
