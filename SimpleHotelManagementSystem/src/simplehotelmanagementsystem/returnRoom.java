@@ -9,6 +9,7 @@ import java.sql.*;
 import javax.swing.JOptionPane;
 import database.connectDB;
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -273,9 +274,16 @@ public class returnRoom extends javax.swing.JFrame {
        Date date2 = new Date() ;
        Date newdate = new Date();
        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-       dateFormat.format(newdate);
+      String stringDate = dateFormat.format(newdate);
        newdate.getDate();
-       System.out.println(newdate);
+       Date date3 = null;
+       try{
+        date3 = (Date)dateFormat.parse(stringDate);
+       }catch(ParseException e){
+           e.printStackTrace();
+           JOptionPane.showMessageDialog(null, "changing date type exception");
+       }
+       System.out.println(date3);
        ResultSet result = null;
        int queryValue = 0;
        //Date reserveDate = new Date();
