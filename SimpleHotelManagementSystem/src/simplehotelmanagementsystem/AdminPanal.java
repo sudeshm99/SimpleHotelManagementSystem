@@ -174,6 +174,7 @@ public class AdminPanal extends javax.swing.JFrame {
         String usr = user.getSelectedItem().toString();//get selected item from commbo box and set item to usr variable
         char[] pw = passwordField.getPassword();// get entered pw and convert it into string and set it to pw variable
         String pwd = new String(pw);//pw is a char array so it convert into string
+        String user = null;
 //        System.out.println(usr);
 //        System.out.println(pwd);
       try{  
@@ -185,8 +186,7 @@ public class AdminPanal extends javax.swing.JFrame {
         statement.setString(1, usr);
         statement.setString(2, pwd);// set user input values to the query
         ResultSet rs = statement.executeQuery();
-        //System.out.println(pwd);
-        String user = null;
+       
         while(rs.next()){
              user = rs.getString("user");//get database username and set it to the user variable
              //password = rs.getString("password");// get database password and set it to the password variable
@@ -196,6 +196,7 @@ public class AdminPanal extends javax.swing.JFrame {
 //        System.out.printf("%s", password);
         //if(user.equals(usr)){//check result user and password are equals to the user enter username and password
             System.out.println("loged in");
+            System.out.println(user);
             if(user.equals("manager")){//if user manager then login into manager form
                 Manager manager = new Manager();
                 manager.setVisible(true);
@@ -204,8 +205,8 @@ public class AdminPanal extends javax.swing.JFrame {
                 Receptionist receptionist = new Receptionist();
                 receptionist.setVisible(true);
                 dispose();//close the login window
-            }else{
-                System.out.println("Password is incorrect");
+            }else if(user == null){
+                JOptionPane.showMessageDialog(null, "Incorenct password");
         }
         //}
       }catch(Exception ex){
